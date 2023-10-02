@@ -1,0 +1,176 @@
+@mixin abs-pos ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	position: absolute;
+}
+
+@mixin widthheight ($wid: auto, $hei: auto) {
+	width: $wid;
+	height: $hei;
+}
+
+@mixin widthheightboth ($both: auto) {
+	width: $both;
+	height: $both;
+}
+
+@mixin widthheightcentered ($wid: auto, $hei: auto) {
+	width: $wid;
+	height: $hei;
+	$halfwid:($wid/2)*-1;
+	$halfheight:($hei/2)*-1;
+	margin: $halfheight 0 0 $halfwid;
+}
+
+@mixin pseudofill() {
+	content: '';
+	position: absolute;
+	top: 0; left: 0;
+	@include widthheightboth(100%);
+}
+
+@mixin absolutefill() {
+	position: absolute; top: 0; left: 0;
+	@include widthheightboth(100%);
+}
+
+@mixin backface() {
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+@mixin responsivefonts($x,$y,$z) {
+	font-size: $x;
+	@media only screen and (min-width: 1200px) {
+		font-size: $y;
+	}
+	@media only screen and (min-width: 1600px) {
+		font-size: $z;
+	}
+}
+
+// .sample {  - THIS IS FOR USING THE ABOVE, VERY HANDY
+// 	@include abs-pos(10px, 10px, 5px, 15px);
+// }
+
+
+// COLORS
+$color-white: #fff;
+$color-intro-yellow: #ffd42d;
+$color-intro-highlight: #fffade;
+$color-black: #212121;
+$color-light-grey: #f2f7f6;
+$color-who-blue: #1544c0;
+$color-who-highlight: #96ffca;
+$color-what-red: #f86449;
+$color-what-highlight: #fff55a;
+$color-work-purple: #5210ac;
+$color-work-highlight: #fbe10f;
+
+//SCROLLBARS
+// ::-webkit-scrollbar {  
+// 	height: 12px; 
+// 	width: 9px; 
+// 	background: rgba(0,0,0,0); 
+// 	border-radius: 20px;
+// }
+
+// ::-webkit-scrollbar-thumb { 
+// 	background:$threat-red; 
+// 	border: 3px solid #232323;
+// 	border-radius: 20px;
+// }
+
+// ::selection {
+//   background: $threat-red; /* WebKit/Blink Browsers */
+// }
+// ::-moz-selection {
+//   background: $threat-red; /* Gecko Browsers */
+// }
+
+// EASING
+$fluid: .7,.3,0,1;
+$fluidless: .5,.5,0,1;
+$smootheaseout: .62,.02,.34,1;
+$intenseeaseout: 1,0,0,1;
+$lessintenseperfect: .55,0,0.45,1;
+$suckitin: .38,-0.32,.89,.34;
+$smoothswing: 0.4, 0.3, 0.1, .4;
+$gentleeasein: .5,0,.57,1;
+$lineareaseout: .45,.65,.64,1;
+$sweepinginout: .52,.01,.16,1;
+$lineareasein: .52,.7,.41,1;
+$gentleout: .11,.62,.3,.98;
+$bounce: .03,.75,.23,1.21;
+$intensebounce: .12,.78,.38,1.4;
+$zoomout: .73,.02,.88,.53;
+
+$tabletWidth: 1024px;
+$mobileWidth: 700px;
+
+@font-face {
+    font-family: 'Sectra';
+    src: url('../fonts/GT-Sectra-Book.eot');
+    src: url('../fonts/GT-Sectra-Book.eot') format('embedded-opentype'),
+         url('../fonts/GT-Sectra-Book.woff') format('woff'),
+         url('../fonts/GT-Sectra-Book.ttf') format('truetype'),
+         url('../fonts/GT-Sectra-Book.svg#Sectra') format('svg');
+}
+
+@font-face {
+    font-family: 'Sectra Bold';
+    src: url('../fonts/GT-Sectra-Display-Bold.eot');
+    src: url('../fonts/GT-Sectra-Display-Bold.eot') format('embedded-opentype'),
+         url('../fonts/GT-Sectra-Display-Bold.woff') format('woff'),
+         url('../fonts/GT-Sectra-Display-Bold.ttf') format('truetype'),
+         url('../fonts/GT-Sectra-Display-Bold.svg#Sectra') format('svg');
+}
+
+@font-face {
+    font-family: 'Ginger Regular';
+    src: url('../fonts/f37ginger-regular-webfont.eot');
+    src: url('../fonts/f37ginger-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/f37ginger-regular-webfont.woff') format('woff'),
+         url('../fonts/f37ginger-regular-webfont.ttf') format('truetype'),
+         url('../fonts/f37ginger-regular-webfont.svg#f37ginger-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ginger Bold';
+    src: url('../fonts/f37ginger-bold-webfont.eot');
+    src: url('../fonts/f37ginger-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/f37ginger-bold-webfont.woff') format('woff'),
+         url('../fonts/f37ginger-bold-webfont.ttf') format('truetype'),
+         url('../fonts/f37ginger-bold-webfont.svg#f37ginger-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// @font-face {
+//     font-family: 'f37_gingerlight';
+//     src: url('f37ginger-light-webfont.eot');
+//     src: url('f37ginger-light-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('f37ginger-light-webfont.woff') format('woff'),
+//          url('f37ginger-light-webfont.ttf') format('truetype'),
+//          url('f37ginger-light-webfont.svg#f37_gingerlight') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+
+// }
+
+// @font-face {
+//     font-family: 'f37_gingerthin';
+//     src: url('f37ginger-thin-webfont.eot');
+//     src: url('f37ginger-thin-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('f37ginger-thin-webfont.woff') format('woff'),
+//          url('f37ginger-thin-webfont.ttf') format('truetype'),
+//          url('f37ginger-thin-webfont.svg#f37_gingerthin') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
+
+// }
+
