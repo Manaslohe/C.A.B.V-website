@@ -136,54 +136,146 @@ window.addEventListener("scroll", handleScroll);
       });
     });
     </script>
+    <script>
+       document.addEventListener("DOMContentLoaded", function() {
+    const navLinks = document.querySelectorAll(".main-nav a");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: "smooth"
+                });
+
+                // Remove "active" class from all links
+                navLinks.forEach(navLink => {
+                    navLink.classList.remove("active");
+                });
+
+                // Add "active" class to the clicked link
+                this.classList.add("active");
+            }
+        });
+    });
+});
+        </script>
+        <script>
+            // Function to check if an element is in the viewport
+            function isElementInViewport(el) {
+                var rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+        
+            // Function to handle the scroll event
+            function handleScroll() {
+                var elements = document.querySelectorAll('.fade-in-text');
+                
+                elements.forEach(function(element) {
+                    if (isElementInViewport(element)) {
+                        element.style.opacity = '1';
+                    }
+                });
+            }
+        
+            // Add an event listener for the scroll event
+            window.addEventListener('scroll', handleScroll);
+        
+            // Trigger the initial check to see if elements are in the viewport on page load
+            handleScroll();
+        </script>
+        
        
 </head>
 <body class="body js-watch-state" data-state="who">
-    <!-- <div class="preloader">
-        <div class="loading-icon" data-w-id="32b9fc5e-45af-fa43-6fcc-d276e86062f0" data-animation-type="lottie" data-src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a5677ba424811_preloader.json" data-loop="1" data-direction="1" data-autoplay="1"
-            data-is-ix2-target="0" data-renderer="svg" data-default-duration="1.1666666666666667" data-duration="0"></div>
-    </div> -->
-
-    <!-- Header -->
-    <ul class="page-bg pos-f full-size js-watch-state js-figures-horizon" data-state="who" data-preloading="on">
-        <li>
-            <div class="horizon-bg pos-a-t-l full-size"></div>
-        </li>
-        <li>
-            <div class="horizon-bg pos-a-t-l full-size"></div>
-        </li>
-        <li>
-            <div class="horizon-bg pos-a-t-l full-size"></div>
-        </li>
-        <li>
-            <div class="horizon-bg pos-a-t-l full-size"></div>
-        </li>
-        <li class="js-project-bg">
-            <div class="horizon-bg pos-a-t-l full-size"></div>
-        </li>
-    </ul>
-    <div class="back-to-top">
-        <div id="Top" class="top"></div><a href="#Top" class="top-button w-inline-block"></a></div>
-    <div data-collapse="all" data-animation="default" data-duration="1200" data-easing="ease-in-out-quart" data-easing2="ease-in-out-quart" data-w-id="52b687cd-87ec-417c-3faf-de06b43fdf67"
-        role="banner" class="nav-bar w-nav"><a href="#Top" aria-current="page" class="brand w-nav-brand w--current"><img src="./favicon.png" loading="lazy" alt="" sizes="(max-width: 479px) 125px, (max-width: 767px) 35vw, 275px" srcset="./images/favicon.png 500w, ./images/favicon.png 800w, ./images/favicon.png 1080w, ./images/favicon.png 2125w" class="banner-logo"/></a>
-        <div
-            class="navigation">
-            <div class="menu-button w-clearfix w-nav-button">
-                <div class="menu-icon">
-                    <div class="menu-icon-line-top"></div>
-                    <div class="menu-icon-line-bottom"></div>
-                    </div>
-                </div>
-            <nav class="pos-f js-watch-state" data-state="who" data-active="off">
-        <div class="nav-contact">
-            <a class="js-open-contact wiggle-link" href="#">Contact<span class="wiggle"></span></a>
+    <div class="preloader-shield logo-shield-wrap pos-a-center" data-color-state="white">
+        <ul class="logo-shield pos-a full-size">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <div class="tf pos-a-t-l full-size"></div>
+        </ul>
+    </div><a href="#" class="mob-nav-btn js-mob-nav-btn" data-mob-nav-on="off"></a>
+    
+    <div class="mob-nav js-mob-nav" data-active="off">
+        <div>
+            <ul>
+                <li><a href="#aboutus" class="js-mob-nav-btn js-state-change" >About Us</a></li>
+                <li><a href="#aboutbc" class="js-mob-nav-btn js-state-change" >About Blind Cricket</a></li>
+                <li><a href="#playing-11" class="js-mob-nav-btn js-state-change" >Playing 11</a></li>
+                <li><a href="#goal" class="js-mob-nav-btn js-state-change">Goal</a></li>
+            </ul>
         </div>
-        <a href="#" class="back-to-top-arrow-wrap js-back-to-top">
-            <div class="scroll-arrow">
-                <span></span><span></span>
-            </div>
-        </a>
-    </nav>
+        <div>
+            <h3>Get in Touch</h3>
+            <ul class="social-list">
+                <li><a class="icon icon-mail" href=''></a></li>
+                <li><a target="_blank" class="icon icon-twitter" href=''></a></li>
+                <li><a target="_blank" class="icon icon-linkedin" href=''></a></li>
+            </ul>
+        </div>
+        <div class="ledge-wrap pos-a-t-l full-size">
+            <div class="ledge ledge-minus-16-deg"></div>
+        </div>
+    </div>
+          <ul class="page-bg pos-f full-size js-watch-state js-figures-horizon" data-state="who" data-preloading="on">
+              <li><div class="horizon-bg pos-a-t-l full-size"></div></li>
+              <li><div class="horizon-bg pos-a-t-l full-size"></div></li>
+              <li><div class="horizon-bg pos-a-t-l full-size"></div></li>
+              <li><div class="horizon-bg pos-a-t-l full-size"></div></li>
+              <li class="js-project-bg"><div class="horizon-bg pos-a-t-l full-size"></div></li>
+          </ul>
+    
+          <nav class="pos-f js-watch-state" data-state="who" data-active="off">
+            <script>
+                window.addEventListener("load", function() {
+            const logo = document.getElementById("custom-logo");
+            logo.style.opacity = 1; // Set opacity to 1 to reveal the logo
+        });
+                window.addEventListener("scroll", function() {
+    const logo = document.getElementById("custom-logo");
+    if (window.scrollY > 100) { // Adjust the scroll threshold as needed
+        logo.style.top = "-125px"; // Hide the logo
+    } else {
+        logo.style.top = "0"; // Show the logo
+    }
+});
+            </script>
+            <style>
+           .custom-logo {
+            width: 150px; /* Adjust the width as needed */
+            height: auto;
+            position: fixed;
+            top: 0; /* Start with the logo visible */
+            left: 0px; /* Adjust the horizontal position */
+            opacity: 0; /* Initially set opacity to 0 */
+            transition: top 1s ease, opacity 1s ease;
+            transition-delay: 1.5s; /* Add a 2-second delay before the transition */
+        }
+            </style>
+            
+            <img src="./images/favicon.png" alt="Your Logo" class="custom-logo" id="custom-logo">
+              <div class="nav-contact">
+                  <a class="js-open-contact wiggle-link" href="#">Contact<span class="wiggle"></span></a>
+              </div>
+              <a href="#" class="back-to-top-arrow-wrap js-back-to-top">
+                  <div class="scroll-arrow">
+                      <span></span><span></span>
+                  </div>
+              </a>
+          </nav>
 </div>
 </div>
     <!-- Page Content -->
@@ -195,13 +287,13 @@ window.addEventListener("scroll", handleScroll);
                     <h1 class="letter-split">C.A.B.V</h1>
                     <h2 class="letter-split">Cricket Accociation for the Blind in Vidharbha</h2>
                 </div>
-                <section class="js-monitor-scroll" data-active="off">
+                <section id="aboutus" class="js-monitor-scroll" data-active="off">
                     <div class="content">
                         <h3>About us </h3>
                         <h2>Cricket association in Vidarbha is a organisation which aims to promote blind cricket across the region of Vidarbha.</h2>
                       </div>
                 </section>
-                <section class="js-monitor-scroll white-bg profile-section rule-below left-aligned-section" data-active="off">
+                <section id="Aboutbc" class="js-monitor-scroll white-bg profile-section rule-below left-aligned-section" data-active="off">
                     <div class="mob-jon mob-figure"></div>
                     <div class="content">
                         <div class="content">
@@ -224,9 +316,9 @@ window.addEventListener("scroll", handleScroll);
                 <div id="Intro" class="section light">
                     <div class="team-wrapper">
                         <div data-w-id="1ebcb77b-e02f-7c6f-17f5-12b69067835a">
-                            <h1 data-w-id="1ebcb77b-e02f-7c6f-17f5-12b69067835d" style="white-space: nowrap; text-align: center;color:#1544C0"class="heading" >Blind Cricket Categories</h1><br>
-                            <div data-w-id="1ebcb77b-e02f-7c6f-17f5-12b69067835b" style="opacity:100; text-align: center;" class="text-label">Blind cricket is divided into three categories: <br>B1, B2, & B3.</div>
-                            <div data-w-id="1ebcb77b-e02f-7c6f-17f5-12b69067835f" style="width: 100px;height: 4px;background-color:#1544C0;margin: auto;" class="divider no-margin-bottom"></div>
+                            <h1 data-w-id="1ebcb77b-e02f-7c6f-17f5-12b69067835d" style="white-space: nowrap; text-align: center;color:#1544C0"class="heading" >Blind Cricket Categories</h1>
+                            <div data-w-id="1ebcb77b-e02f-7c6f-17f5-12b69067835b" style="opacity:100; text-align: center;" class="text-label">Blind cricket is divided into three categories: <br>B1, B2, & B3.</div><br>
+                            <div data-w-id="1ebcb77b-e02f-7c6f-17f5-12b69067835f" style="width: 100px;height: 4px;background-color:#1544C0;margin: auto;" class="divider no-margin-bottom"></div><br>
                         </div>
                         <div class="side-blocks mobile-reverse">
                             <div class="side-block no-padding-left">
@@ -252,9 +344,9 @@ window.addEventListener("scroll", handleScroll);
                                     data-w-id="1d2fcb84-cef0-2f89-4af8-d3bd56da2ee2" loading="lazy" srcset="../www.regeneration.enterprises/images/news paper.jpg 500w, ../www.regeneration.enterprises/images/news paper.jpg 800w, ../www.regeneration.enterprises/images/news paper.jpg 1080w, ../www.regeneration.enterprises/images/news paper.jpg 1200w"/></div>
                             <div class="side-block no-padding-left">
                                 <div class="side-info">
-                                    <h2 data-w-id="1d2fcb84-cef0-2f89-4af8-d3bd56da2edf" style="opacity:100;font-family:Ginger Bold;font-size:20;color:#1544C0" class="h3">Blind Cricket Formats:</h2>
+                                    <h2 style="opacity:100;font-family:Ginger Bold;font-size:20;color:#1544C0">Blind Cricket Formats:</h2>
                                         <p style="color: black;">Blind cricket is usually played in two formats worldwide: T20 and OD (One Day). However, in blind cricket, the OD format differs from sighted cricket. In blind cricket, OD matches consist of 40 overs, whereas in sighted cricket, it is a fifty overs format.</p><br><br>
-                                                <h2 data-w-id="1d2fcb84-cef0-2f89-4af8-d3bd56da2edf" style="opacity:100;font-family:Ginger Bold;font-size:20;color:#1544C0" class="h3">ICC WBCC (World Blind Cricket Council):</h2>
+                                                <h2 data-w-id="1d2fcb84-cef0-2f89-4af8-d3bd56da2edf" style="opacity:100;font-family:Ginger Bold;font-size:20;color:#1544C0">ICC WBCC (World Blind Cricket Council):</h2>
                                         <p style="color: black;">Just like the ICC WBCC (World Blind Cricket Council) serves as the global governing body for blind cricket.</p>
                                 </div>
                             </div>
@@ -280,63 +372,66 @@ window.addEventListener("scroll", handleScroll);
                         <div class="team-wrapper centered second-in-section"></div>
                     </div>
                     <footer>
-                    <div id="Services" class="section no-padding-bottom no-padding-top footer-top">
-                        <div class="team-wrapper side-paddings">
-                            <div class="footer-v1 temp top">
-                                <div class="top-footer-links">
-                                    <a href="" target="_blank" class="footer-link w-inline-block">
-                                        <div class="footer-link-type">Code of Conduct</div>
-                                    </a>
-                                    <div class="footer-link">|</div>
-                                    <a href="#Contact" class="footer-link w-inline-block">
-                                        <div class="footer-link-type">Contact Us</div>
-                                    </a>
+                        <div id="Services" class="section no-padding-bottom no-padding-top footer-top">
+                            <div class="team-wrapper side-paddings">
+                                <div class="footer-v1 temp top">
+                                    <div class="top-footer-links" style="text-align: center;">
+                                        <a href="" target="_blank" class="footer-link w-inline-block">
+                                            <div class="footer-link-type">Code of Conduct</div>
+                                        </a>
+                                        <div class="footer-link">|</div>
+                                        <a href="#Contact" class="footer-link w-inline-block">
+                                            <div class="footer-link-type">Contact Us</div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="Services" class="section no-padding-bottom no-padding-top temp-footer">
-                        <div class="side-paddings">
-                            <div class="footer-v1 temp">
-                                <div class="footer-content resolve-section"><a href="../favicon.png" target="_blank" class="w-inline-block"><img src="../favicon.png" loading="lazy" alt="Resolve Logo" class="resolve-footer-logo"/></a>
-                                    <div
-                                        class="footer-type">Blind cricket teaches us that determination knows no boundaries. In the world of silence and shadows, they find their light through passion, courage, and skill. Witness the beauty of cricket through sound, touch, and heart – it's not just a sport; it's an inspiration.</div>
+                        <div id="Services" class="section no-padding-bottom no-padding-top temp-footer" style="background-color: #222; padding: 20px; color: #fff; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                            <a href="../favicon.png" target="_blank" class="w-inline-block">
+                                <img src="../favicon.png" loading="lazy" alt="Resolve Logo" class="resolve-footer-logo" style="width: 200px; height: auto; display: block;" />
+                            </a>
+                            <div class="footer-content resolve-section" style="margin-top: 20px; font-size: 16px; line-height: 1.5;">
+                                Blind cricket teaches us that determination knows no boundaries. In the world of silence and shadows, they find their light through passion, courage, and skill. Witness the beauty of cricket through sound, touch, and heart 
+                                <Br> <p style="color: #1544C0; font-family: 'Ginger Bold'; font-size: 25px;">it's not just a sport; it's an inspiration.</p>
                             </div>
-                            <div class="footer-v1-social">
-                                <div class="social-buttons right"><a href="" target="_blank" class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a5660db42474e_linkedin-icon-white.svg" alt="Twitter Icon"/></a>
-                                    <a
-                                        href="" target="_blank" class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a56e12c424740_instagram-icon-white.svg" alt="Facebook Icon" /></a>
-                                </div>
+                            <div class="footer-v1-social" style="text-align: center; display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+                                <a href="" target="_blank" class="social-button w-inline-block">
+                                    <img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a5660db42474e_linkedin-icon-white.svg" alt="LinkedIn Icon" />
+                                </a>
+                                <a href="" target="_blank" class="social-button w-inline-block">
+                                    <img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a56e12c424740_instagram-icon-white.svg" alt="Instagram Icon" />
+                                </a>
                             </div>
+                            
                         </div>
-                    </div>    
+                           
                     <div class="section footer-section">
                         <div class="team-wrapper side-paddings">
                             <div class="footer-v1">
-                                <div class="footer-v1-nav"><a href="/old-home" class="footer-v1-link">Home</a><a href="/portfolio/portfolio-masonry" class="footer-v1-link">Portfolio</a><a href="/blog-layouts/blog-1" class="footer-v1-link">Blog</a><a href="/about/about-1" class="footer-v1-link">About</a>
-                                    <a
-                                        href="/contacts/contact-2" class="footer-v1-link">Contact</a>
-                                </div>
-                                <div class="footer-v1-contacts">
-                                    <div class="text-grey">4293 Euclid Avenue, Los Angeles, <br/>CA 90012</div><a href="mailto:your@email.com?subject=Your%20Subject" class="footer-email-link">webflow@template.com</a>
-                                    <div class="text-grey">+1 213 974-3898</div>
-                                    <a href="/contacts/contact-1" class="link footer-link w-inline-block">
-                                        <div>Get in Touch</div>
-                                        <div class="link-highlight"></div>
-                                    </a>
-                                </div>
                                 <div class="footer-v1-social">
-                                    <div class="social-buttons right"><a href="https://twitter.com" target="_blank" class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a56be22424772_twitter-icon-white.svg" alt=""/></a><a href="https://facebook.com"
-                                            target="_blank" class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a5635c642474a_facebook-icon-white.svg" alt=""/></a><a href="https://instagram.com" target="_blank"
-                                            class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a56e12c424740_instagram-icon-white.svg" alt=""/></a><a href="https://behance.net" target="_blank" class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a564440424769_behance-icon-white.svg" alt=""/></a>
-                                        <a
-                                            href="https://dribbble.com" target="_blank" class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a56a875424746_dribbble-icon-white.svg" alt="" /></a>
+                                    
+                                    
+                                    <style>@media screen and (max-width: 768px) {
+                                        .footer-v1-social {
+                                            display: flex;
+                                            justify-content: center; /* Horizontally center-align */
+                                            align-items: center; /* Vertically center-align */
+                                            text-align: center;
+                                        }
+                                    }
+                                    </style>
+                                    <div class="social-buttons right"><a href="https://twitter.com" target="_blank" class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a56be22424772_twitter-icon-white.svg" alt=""/></a>
+                                        <a href="https://facebook.com"target="_blank" class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a5635c642474a_facebook-icon-white.svg" alt=""/></a>
+                                            <a href="https://instagram.com" target="_blank"class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a56e12c424740_instagram-icon-white.svg" alt=""/></a>
+                                            <a href="https://behance.net" target="_blank" class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a564440424769_behance-icon-white.svg" alt=""/></a>
+                                        <a href="https://dribbble.com" target="_blank" class="social-button w-inline-block"><img src="https://uploads-ssl.webflow.com/617871f8849a56fd144246a9/617871f9849a56a875424746_dribbble-icon-white.svg" alt="" /></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="footer-bottom dark-bg">
                                 <div class="footer-bottom-left">
-                                    <div>© Copyright 2023 <a href="https://www.regeneration.enterprises/" target="_blank" class="link-white">Regeneration Enterprises, Inc.</a></div>
+                                    <div>© Copyright 2023 <a href="" target="_blank" class="link-white">Cricket Accociation for Blind Vidharbha</a></div>
                             </div>
                         </div>
                     </div>
@@ -344,44 +439,43 @@ window.addEventListener("scroll", handleScroll);
             </div>
         </div>
     </div>
-    <br>
     <div class="scroll-arrow-wrap pos-f monitor-preload" data-preloading="on">
         <div class="scroll-arrow">
             <span></span><span></span>
         </div>
     </div>
+    
     <div class="modal contact-modal js-contact-modal" data-active="off">
-
         <div class="full-size pos-a-t-l">
             <div class="ledge ledge-minus-16-deg"></div>
         </div>
-
+        
         <div class="contact-modal-content">
-            <h4 class="no-line">Contact us</h4>
-            <a href="mailto:hello@toyfight.co" class="huge-text underline-link js-cursor-follower-active"><span>hello@toyfight.co</span></a>
+            <h4 class="no-line">Contact Us</h4>
+            <a href="mailto:hello@toyfight.co" class="huge-text underline-link js-cursor-follower-active">
+                <span>abcd@gmail.com</span>
+            </a>
         </div>
-
+        
         <div class="contact-social pos-a js-contact-social">
-            <h3><span class="not-awkward">Social<span class="awkward">ly Awkward</span></span>
-            </h3>
-            <ul class="social-list">
-                <li><a target="_blank" class="icon icon-twitter" href="http://twitter.com/Toy_Fight"></a></li>
-                <li><a target="_blank" class="icon icon-behance" href="http://www.behance.net/ToyFight"></a></li>
-                <li><a target="_blank" class="icon icon-dribbble" href="http://dribbble.com/ToyFight"></a></li>
-                <li><a target="_blank" class="icon icon-linkedin" href="http://www.linkedin.com/company/toyfight"></a></li>
-            </ul>
-
+            <h3><span class="not-awkward">Social</span></h3>
+            <ul class="custom-social-list">
+                <li><a target="_blank" class="icon icon-twitter" href=""></a></li>
+                <li><a target="_blank" class="icon icon-behance" href=""></a></li>
+                <li><a target="_blank" class="icon icon-dribbble" href=""></a></li>
+                <li><a target="_blank" class="icon icon-linkedin" href=""></a></li>
+            </ul>            
         </div>
+        
         <a href="#" class="close js-close-contact">
-    <span></span><span></span>
-  </a>
-        <div class="hand-cursor-follower js-hand-cursor-follower" data-active="off"></div>
-
+            <span></span><span></span>
+        </a>
     </div>
+    
 </body>
 <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=617871f8849a56fd144246a9" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="./js/webflow.f89bd9d2b.js" type="text/javascript"></script>
-<script type='text/javascript' src='/wp-includes/js/wp-embed.min.js?ver=4.9.23'></script>
+<script type='text/javascript' src='./js/wp-embed.min.js'></script>
 <script src="./js/jquery-1.11.3.min.js"></script>
 <script src="./js/preloadjs-0.6.1.min.js"></script>
 <script src="./js/soundjs-0.6.1.min.js"></script>
