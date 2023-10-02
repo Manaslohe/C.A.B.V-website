@@ -8812,7 +8812,7 @@ figcaption {
     }
     .section {
         padding-top: 64px;
-        padding-bottom: 64px;
+        padding-bottom: 0px;
     }
     .section.no-padding-side {
         padding-left: 0;
@@ -10042,8 +10042,8 @@ figcaption {
         overflow: hidden;
     }
     .bg-text-wrapper {
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top: 130px;
+        padding-bottom: 100px;
     }
     .promo-image-1 {
         width: 66%;
