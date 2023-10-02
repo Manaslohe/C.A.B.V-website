@@ -7770,7 +7770,8 @@ figcaption {
     }
     .text-label {
         margin-bottom: 3px;
-        font-size: 10px;
+        font-size: 8px;
+        padding-bottom: 10px;
     }
     .no-padding-vertical {
         padding-top: 0;
