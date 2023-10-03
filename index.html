@@ -6,6 +6,7 @@
 <!--<![endif]-->
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>C.A.B.V</title>
@@ -28,6 +29,7 @@
     <link rel="stylesheet" href="./css/regenerate.webflow.cb5544745.css" />
     <link rel="stylesheet" href="./css/header.css" />
     <script src="./js/modernizr-custom.js"></script>
+    <script src="https://kit.fontawesome.com/487c4a1da6.js" crossorigin="anonymous"></script>
 
       <script type="text/javascript">
         window._wpemojiSettings = {
@@ -207,29 +209,58 @@ window.addEventListener("scroll", handleScroll);
             <li></li>
             <div class="tf pos-a-t-l full-size"></div>
         </ul>
+        <style>
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .mob-nav {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .social-icons ul {
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .social-icons ul li {
+        display: inline-block; /* Display icons horizontally */
+        margin-right: 10px;
+    }
+}
+        </style>
     </div><a href="#" class="mob-nav-btn js-mob-nav-btn" data-mob-nav-on="off"></a>
     
-    <div class="mob-nav js-mob-nav" data-active="off">
+    <div class="mob-nav js-mob-nav" data-active="off" style="text-align: center; padding: 20px 0;">
         <div>
-            <ul>
-                <li><a href="#aboutus" class="js-mob-nav-btn js-state-change" >About Us</a></li>
-                <li><a href="#aboutbc" class="js-mob-nav-btn js-state-change" >About Blind Cricket</a></li>
-                <li><a href="#playing-11" class="js-mob-nav-btn js-state-change" >Playing 11</a></li>
-                <li><a href="#goal" class="js-mob-nav-btn js-state-change">Goal</a></li>
+            <h3 style="top: 70px;"><span>Connect With Us</span></h3>
+            <ul style="list-style: none; ;padding: 0; margin: 0;">
+                <li style="display: inline-block ;margin-right: 10px;">
+                    <a target="_blank" class="fa-regular fa-envelope fa-bounce fa-2x" href="mailto:rutwik95@gmail.com"></a>
+                </li>
+                <li style="display: inline-block; margin-right: 10px;">
+                    <a target="_blank" class="fa-brands fa-instagram fa-bounce fa-2x" href="#"></a>
+                </li>
+                <li style="display: inline-block; margin-right: 10px;">
+                    <a target="_blank" class="fa-brands fa-facebook fa-bounce fa-2x" href="#"></a>
+                </li>
+                <li style="display: inline-block; margin-right: 10px;">
+                    <a target="_blank" class="fa-brands fa-linkedin fa-bounce fa-2x" href="#"></a>
+                </li><br><br><br>
+                <li style="position: relative;"><br><br><br>
+                    <a target="_blank" class="fa-solid fa-phone fa-2x" href="#" style="vertical-align: bottom;"></a>
+                    <a target="_blank" href="tel:8888883910" style="display: inline-block; vertical-align: bottom;">8888883910</a>
+                </li>
             </ul>
+            
         </div>
-        <div>
-            <h3>Get in Touch</h3>
-            <ul class="social-list">
-                <li><a class="icon icon-mail" href=''></a></li>
-                <li><a target="_blank" class="icon icon-twitter" href=''></a></li>
-                <li><a target="_blank" class="icon icon-linkedin" href=''></a></li>
-            </ul>
-        </div>
+        
         <div class="ledge-wrap pos-a-t-l full-size">
             <div class="ledge ledge-minus-16-deg"></div>
         </div>
     </div>
+    
           <ul class="page-bg pos-f full-size js-watch-state js-figures-horizon" data-state="who" data-preloading="on">
               <li><div class="horizon-bg pos-a-t-l full-size"></div></li>
               <li><div class="horizon-bg pos-a-t-l full-size"></div></li>
@@ -275,18 +306,159 @@ window.addEventListener("scroll", handleScroll);
                       <span></span><span></span>
                   </div>
               </a>
+              
           </nav>
+          
 </div>
 </div>
     <!-- Page Content -->
-
+    
     <div class="pos-a-t-l full-size page-content js-page-content" id="page-content" data-active="off">
         <div id="ps-scroll-container" class="scrolling-content js-scrolling-content full-size pos-a-t-l who-content" data-state="who">
             <div class="scrolling-content-wrap">
                 <div class="flex-vert-center masterhead js-masterhead js-full-height ">
                     <h1 class="letter-split">C.A.B.V</h1>
                     <h2 class="letter-split">Cricket Accociation for the Blind in Vidharbha</h2>
+                    <style>
+                        @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');
+                
+                        :root {
+                            --text-color: hsla(210, 50%, 85%, 1);
+                            --shadow-color: hsla(210, 40%, 52%, .4);
+                            --btn-color: hsl(210, 80%, 42%);
+                            --bg-color: #141218;
+                        }
+                
+                        * {
+                            box-sizing: border-box;
+                        }
+                
+                        .container {
+            display: flex;
+            justify-content: center;
+            top: 100px;
+            align-items: flex-start; /* Align content slightly down from the center */
+            height: 10vh; /* Set height back to 100vh */
+            padding-top: 0; /* Remove top padding */
+        }
+                
+                        .custom-button {
+                            position: relative;
+                            padding: 15px 20px;
+                            border: none;
+                            background: none;
+                            cursor: pointer;
+                            
+                
+                            font-family: "Source Code Pro";
+                            font-weight: 900;
+                            text-transform: uppercase;
+                            font-size: 30px;
+                            color: var(--text-color);
+                
+                            background-color: var(--btn-color);
+                            box-shadow: var(--shadow-color) 2px 2px 22px;
+                            border-radius: 4px;
+                            z-index: 0;
+                            overflow: hidden;
+                        }
+                
+                        .custom-button:focus {
+                            outline-color: transparent;
+                            box-shadow: var(--btn-color) 2px 2px 22px;
+                        }
+                
+                        .right::after, .custom-button::after {
+                            content: var(--content);
+                            display: block;
+                            position: absolute;
+                            white-space: nowrap;
+                            line-height: 1;
+                            padding: 40px 40px;
+                            pointer-events: none;
+                        }
+                
+                        .custom-button::after {
+                            font-weight: 200;
+                            top: -30px;
+                            left: -20px;
+                        }
+                
+                        .right, .left {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                        }
+                
+                        .right {
+                            left: 66%;
+                        }
+                
+                        .left {
+                            right: 66%;
+                        }
+                
+                        .right::after {
+                            top: -30px;
+                            left: calc(-66% - 20px);
+                
+                            background-color: var(--bg-color);
+                            color: transparent;
+                            transition: transform .4s ease-out;
+                            transform: translate(0, -90%) rotate(0deg)
+                        }
+                
+                        .custom-button:hover .right::after {
+                            transform: translate(0, -47%) rotate(0deg)
+                        }
+                
+                        .custom-button .right:hover::after {
+                            transform: translate(0, -50%) rotate(-7deg)
+                        }
+                
+                        .custom-button .left:hover ~ .right::after {
+                            transform: translate(0, -50%) rotate(7deg)
+                        }
+                
+                        /* bubbles */
+                        .custom-button::before {
+                            content: '';
+                            pointer-events: none;
+                            opacity: .6;
+                            background:
+                                radial-gradient(circle at 20% 35%, transparent 0, transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
+                                radial-gradient(circle at 75% 44%, transparent 0, transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
+                                radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);
+                
+                            width: 100%;
+                            height: 300%;
+                            top: 0;
+                            left: 0;
+                            position: absolute;
+                            animation: bubbles 5s linear infinite both;
+                        }
+                
+                        @keyframes bubbles {
+                            from {
+                                transform: translate();
+                            }
+                            to {
+                                transform: translate(0, -66.666%);
+                            }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <button class="custom-button" style="--content: 'Donate Now!';">
+                            <div class="left"></div>
+                            Donate Now!
+                            <div class="right"></div>
+                        </button>
+                        </div>
                 </div>
+                
                 <section id="aboutus" class="js-monitor-scroll" data-active="off">
                     <div class="content">
                         <h3>About us </h3>
@@ -370,6 +542,11 @@ window.addEventListener("scroll", handleScroll);
                                 <div data-w-id="47f59d94-a6de-3a75-af1f-cde9f99594f5" style="opacity:0" class="divider color no-margin-bottom"></div>
                         </div>
                         </div>
+                        <button class="custom-button" style="--content: 'Donate Now!';">
+                            <div class="left"></div>
+                            Donate Now!
+                            <div class="right"></div>
+                        </button>
                         <div class="team-wrapper centered second-in-section"></div>
                     </div>
                     <footer>
@@ -449,25 +626,20 @@ window.addEventListener("scroll", handleScroll);
     <div class="modal contact-modal js-contact-modal" data-active="off">
         <div class="full-size pos-a-t-l">
             <div class="ledge ledge-minus-16-deg"></div>
-        </div>
-        
-        <div class="contact-modal-content">
-            <h4 class="no-line">Contact Us</h4>
-            <a href="mailto:hello@toyfight.co" class="huge-text underline-link js-cursor-follower-active">
-                <span>abcd@gmail.com</span>
-            </a>
-        </div>
-        
-        <div class="contact-social pos-a js-contact-social">
-            <h3><span class="not-awkward">Social</span></h3>
-            <ul class="custom-social-list">
-                <li><a target="_blank" class="icon icon-twitter" href=""></a></li>
-                <li><a target="_blank" class="icon icon-behance" href=""></a></li>
-                <li><a target="_blank" class="icon icon-dribbble" href=""></a></li>
-                <li><a target="_blank" class="icon icon-linkedin" href=""></a></li>
-            </ul>            
-        </div>
-        
+
+            <div class="contact-social pos-a js-contact-social">
+    <h3><span>Connect With Us</span></h3>
+    <ul class="social-list">
+        <li><a target="_blank"class="fa-regular fa-envelope fa-bounce fa-2xl" href="#"></a></li>
+        <li><a target="_blank"class="fa-brands fa-instagram fa-bounce fa-2xl"href="#"></a></li>
+        <li><a target="_blank"class="fa-brands fa-facebook fa-bounce fa-2xl" href="#"></a></li>
+        <li><a target="_blank"class="fa-brands fa-linkedin fa-bounce fa-2xl" href="#"></a></li>
+    </ul>            
+</div>  
+<div class="contact-modal-content">
+                <h4 class="no-line"><br><br><br><br><br><br>Contact us</h4>
+                <a href="tel:8888883910" class=" fa-solid fa-phone fa-2x"><span class="huge-text ">8888883910</span></a>
+              </div>
         <a href="#" class="close js-close-contact">
             <span></span><span></span>
         </a>
