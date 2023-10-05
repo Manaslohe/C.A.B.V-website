@@ -63,6 +63,12 @@ header{
   margin: auto;
   position: relative;
 }
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  header {
+    height: 115vh; /* Change the height for mobile view */
+  }
+}
 header .navbar{
   margin: auto;
   width: 100%;
@@ -184,10 +190,20 @@ header .navbar{
 
 
 @media (max-width: 768px) {
+  .donation-text {
+    text-align: center; /* Center-align the text */
+  }
+
+ 
   .donation-image {
-      display: none; /* Hide the image in mobile view */
+    display: block; /* Show the image in mobile view */
+    right: 48px; /* Reset the right value */
+    top: 84%; /* Reset the top value */
   }
 }
+
+
+
 .bank-details {
   margin-top: 30px;
   animation: fadeIn 1s ease; /* Apply a fadeIn animation */
@@ -223,41 +239,13 @@ header .navbar{
   }
 }
 
-header .play-button{
-  position: absolute;
-  right: 50px;
-  bottom: 40px;
-}
-.play-button .play{
-  font-size: 18px;
-  font-weight: 500;
-}
- .play-button .play::before{
-   content: '';
-   position: absolute;
-   height: 3px;
-   width: 50px;
-   top: 50%;
-   transform: translateY(-50%);
-   left: -58px;
-   background: #000;
- }
-.play-button i{
-  height: 40px;
-  width: 40px;
-  border: 2px solid #000;
-  line-height: 38px;
-  text-align: center;
-  margin-left: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-}
+
 @media (max-width:850px) {
   header .navbar{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 15px 5px;
+    padding: 1px 15px;
   }
   .navbar .menu {
     margin: 10px 0 20px 0;
