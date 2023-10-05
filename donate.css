@@ -174,11 +174,24 @@ header .navbar{
   border: 3px solid #1544c0; /* Add a border with a gray color */
   border-radius: 10px;
   transition: all 0.3s ease; /* Add animation transition */
+  opacity: 0; /* Set initial opacity to 0 for fade-in effect */
+  animation: fadeIn 7s ease forwards; /* Apply fadeIn animation */
 }
+
+@keyframes fadeIn {
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+}
+
 
 .donation-image img {
   border-radius: 10px; /* Add rounded corners to the image */
   max-width: 100%; /* Ensure the image doesn't exceed its container */
+  
 }
 
 
@@ -190,16 +203,21 @@ header .navbar{
 
 
 @media (max-width: 768px) {
-  .donation-text {
-    text-align: center; /* Center-align the text */
-  }
-
- 
   .donation-image {
     display: block; /* Show the image in mobile view */
     right: 48px; /* Reset the right value */
     top: 84%; /* Reset the top value */
-    size: 40%;
+    opacity: 0; /* Set initial opacity to 0 for fade-in effect */
+    animation: fadeIn 7s ease forwards; /* Apply fadeIn animation */
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
