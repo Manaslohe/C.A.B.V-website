@@ -199,6 +199,7 @@ header .navbar{
     display: block; /* Show the image in mobile view */
     right: 48px; /* Reset the right value */
     top: 84%; /* Reset the top value */
+    size: 40%;
   }
 }
 

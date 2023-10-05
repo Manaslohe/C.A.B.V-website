@@ -79,10 +79,63 @@
       </div>
       
         <div class="donation-image">
-            <a>
-              <img src="./images/upi.png" alt="" width="280" height="300">
+          <style>
+            /* Link Styles */
+            /* Default link styles */
+            .center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-            </a>
+/* UPI link styles */
+.upi-link {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+  display: inline-block;
+}
+@media (max-width: 768px) {
+  .upi-link {
+    padding: 0; /* Remove padding for mobile view */
+  }
+}
+
+.upi-link:hover {
+  background-color: #0056b3;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply animation to the link */
+.upi-link {
+  animation: fadeIn 1s ease;
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  .upi-link {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
+
+          </style><div class="center-container">
+          <a href="upi://pay?pa=9423603630@boi" class="upi-link">Click to Pay with UPI<br>   </div>
+            <img src="./images/upi.png" alt="" width="280" height="300">
+          </a>
+     
         </div>
     </div>
     
