@@ -2489,7 +2489,7 @@ figcaption {
 }
 
 .section.light.grey {
-    background-color: #eee;
+    background-color: #d1daff;
 }
 
 .section.short {
@@ -7358,7 +7358,7 @@ figcaption {
     color: #1b1b1b;
     margin-bottom: 12px;
     font-family: Source Serif Pro, sans-serif;
-    font-size: 38px;
+    font-size: 72px;
     font-weight: 600;
     line-height: 48px;
 }
