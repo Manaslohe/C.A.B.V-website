@@ -1293,8 +1293,8 @@ input {
     background: url("./favicon.png") no-repeat left center;
     background-size: cover;
     width: 135px;
-    height: 104px;
-    top: -30px;
+    height: 204px;
+    top: -60px;
 }
 
 .wrapper .mainWrap .headerWrap .middleNav {
@@ -11154,9 +11154,11 @@ input {
         height: 40px;
     }
     .wrapper .mainWrap .headerWrap .logo {
-        width: 120px;
+        width: 220px;
         background-size: contain;
+    
     }
+    
     .wrapper .mainWrap .headerWrap .middleNav ul {
         line-height: 40px;
     }
@@ -12250,9 +12252,14 @@ input {
     }
     .wrapper .mainWrap .headerWrap .logo {
         z-index: 4;
-        height: 100px;
-       right: 105px;
+        height: 200px;
+        position: absolute;
+        top: -10; /* You may adjust the top position as needed */
+        left: 50%; /* Move the logo to the horizontal center */
+        transform: translateX(-50%); /* Center the logo horizontally */
+        right: auto; /* Reset the 'right' property */
     }
+    
     .wrapper .bottomCookies .cookiesText a.terms {
         position: static;
         line-height: auto;
