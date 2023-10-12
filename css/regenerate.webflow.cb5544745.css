@@ -7330,13 +7330,22 @@ figcaption {
     /* Adjust styles for mobile view */
     .custom-text {
       font-size: 18px;
-      width: 350px;
-      margin: -20px;
+      width: 334px;
+      margin: 0 auto; /* Center the element horizontally */
       line-height: 1.3; /* Adjust line height for smaller screens */
-      text-align: center; /* Center-align the text on smaller screens */
-      left: 30px;
+      text-align: center; /* Center-align the text within the element */
     }
   }
+  @media (max-width: 768px) {
+    .text-center {
+      text-align: center; /* Center-align the text content */
+    }
+    .custom-text {
+      text-align: center; /* Center-align the text within the .custom-text element */
+    }
+  }
+  
+  
 
 
 .fade-in {

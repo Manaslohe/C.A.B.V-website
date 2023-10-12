@@ -1271,7 +1271,12 @@ input {
 .wrapper .mainWrap .headerWrap .menu .toggleWrap {
     margin-top: -8px;
 }
-
+.logus {
+    display: flex;
+    justify-content: center; /* Horizontally center-align children */
+    align-items: center; /* Vertically center-align children */
+    height: 100vh; /* Set a height to center vertically within the viewport */
+  }
 .wrapper .mainWrap .headerWrap .logo,
 .wrapper .mainWrap .headerWrap .middleNav,
 .wrapper .mainWrap .headerWrap .rightNav {
@@ -1285,7 +1290,7 @@ input {
 }
 
 .wrapper .mainWrap .headerWrap .logo {
-    background: url("/favicon.png") no-repeat left center;
+    background: url("./favicon.png") no-repeat left center;
     background-size: cover;
     width: 135px;
     height: 104px;
@@ -2452,7 +2457,7 @@ input {
 }
 
 .wrapper .mainWrap .splashWrap.notSlider .envSun.contactSun {
-    background: url("/images/—Pngtree—white\ cricket\ ball\ png\ 3d_4354764.png") no-repeat bottom center;
+    background: url("./—Pngtree—white\ cricket\ ball\ png\ 3d_4354764.png") no-repeat bottom center;
     background-size: 30%;
     bottom: -140px;
 }
@@ -13273,7 +13278,7 @@ input {
     .wrapper .mainWrap .splashWrap.notSlider .envSun.contactSun {
     top: 450px;
         height: 450px;
-        background: url(/images/—Pngtree—white\ cricket\ ball\ png\ 3d_4354764.png) no-repeat bottom center;
+        background: url(./—Pngtree—white\ cricket\ ball\ png\ 3d_4354764.png) no-repeat bottom center;
         background-size: cover;
     }
     .wrapper .mainWrap .splashWrap .leerBottom {
