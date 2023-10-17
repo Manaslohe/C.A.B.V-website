@@ -10311,6 +10311,13 @@ figcaption {
         font-size: 15px;
         line-height: 24px;
     }
+    /* Disable horizontal scrolling on screens with a maximum width of 767px (typical mobile devices) */
+@media (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
     .collection-list-wrapper {
         grid-template-columns: 1fr 1fr 1fr;
     }

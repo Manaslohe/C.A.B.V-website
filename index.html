@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>C.A.B.V</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta property="og:title" content="C.A.B.V&#174;" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="" />
@@ -82,6 +82,13 @@
                 "complete" === a.readyState && t.readyCallback()
             })), (n = t.source || {}).concatemoji ? c(n.concatemoji) : n.wpemoji && n.twemoji && (c(n.twemoji), c(n.wpemoji)))
         }(window, document, window._wpemojiSettings);
+        if (window.innerWidth <= 767) {
+            window.addEventListener("scroll", function() {
+                if (window.scrollX !== 0) {
+                    window.scrollTo(0, window.scrollY);
+                }
+            });
+        }
     </script>
    <script>
     // Function to check if an element is in the viewport
@@ -441,7 +448,7 @@ window.addEventListener("scroll", handleScroll);
                 
                 <section id="aboutus" class="js-monitor-scroll" data-active="off">
                     <div class="content">
-                        <h3>About us </h3>
+                        <h3>About us</h3>
                         <h2>Cricket association in Vidarbha is a organisation which aims to promote blind cricket across the region of Vidarbha.</h2>
                       </div>
                 </section>
