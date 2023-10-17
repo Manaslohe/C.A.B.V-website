@@ -7320,12 +7320,16 @@ figcaption {
     font-size: 24px;
     font-weight: bold;
     opacity: 0;
-    width: 800px;
-    text-align: center; /* Center-align the text */
+    width: 70%;
     line-height: 1; /* Increase line height for spacing */
     letter-spacing: 1px; /* Increase letter spacing */
-    left: 160px;
+    margin-left: 160px;
 }
+
+.custom-text {
+    text-align: center !important;
+}
+
 @media (max-width: 768px) {
     /* Adjust styles for mobile view */
     .custom-text {
