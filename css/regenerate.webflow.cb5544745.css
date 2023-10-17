@@ -15188,9 +15188,9 @@ body[data-state="intro"] .icon-linkedin::before {
     background: url("../img/ui/colors/intro/icon-linkedin.svg") no-repeat center center/100%;
 }
 
-.who-content h1 {
+/* .who-content h1 {
     color: #96ffca;
-}
+}*/
 
 .who-content h3::after {
     background-color: #96ffca;
