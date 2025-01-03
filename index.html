@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="./css/nicepage.css" media="screen">
     <link rel="stylesheet" href="./css/nicepage-site.css" media="screen">
     <link rel="stylesheet" href="./css/Page-25.css" media="screen">
+    <link rel="stylesheet" href="./css/styles.css">
     <script class="u-script" type="text/javascript" src="./js/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 5.11.5, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
@@ -207,8 +208,26 @@ window.addEventListener("scroll", handleScroll);
             // Trigger the initial check to see if elements are in the viewport on page load
             handleScroll();
         </script>
-        
-       
+        <style>
+        body {
+            overflow-x: hidden; /* Remove horizontal scrollbar */
+        }
+        @media (max-width: 768px) {
+            .container {
+                top: 0; /* Fix the top position */
+                height: auto; /* Adjust height for mobile view */
+            }
+            h1 {
+                margin-top: 20px; /* Adjust margin for mobile view */
+            }
+            .footer-v1-social {
+                display: flex;
+                justify-content: center; /* Horizontally center-align */
+                align-items: center; /* Vertically center-align */
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body class="body js-watch-state" data-state="who">
     <div class="preloader-shield logo-shield-wrap pos-a-center" data-color-state="white">
@@ -221,27 +240,6 @@ window.addEventListener("scroll", handleScroll);
             <li></li>
             <div class="tf pos-a-t-l full-size"></div>
         </ul>
-        <style>
-
-/* Mobile styles */
-@media screen and (max-width: 768px) {
-    .mob-nav {
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .social-icons ul {
-        text-align: center;
-        padding: 0;
-        margin: 0;
-    }
-
-    .social-icons ul li {
-        display: inline-block; /* Display icons horizontally */
-        margin-right: 10px;
-    }
-}
-        </style>
     </div><a href="./contact.html" class="mob-nav-btn" data-mob-nav-on="off"></a>
         <div class="ledge-wrap pos-a-t-l full-size">
             <div class="ledge ledge-minus-16-deg"></div>
@@ -271,19 +269,6 @@ window.addEventListener("scroll", handleScroll);
     }
 });
             </script>
-            <style>
-           .custom-logo {
-            width: 150px; /* Adjust the width as needed */
-            height: auto;
-            position: fixed;
-            top: 0; /* Start with the logo visible */
-            left: 0px; /* Adjust the horizontal position */
-            opacity: 0; /* Initially set opacity to 0 */
-            transition: top 1s ease, opacity 1s ease;
-            transition-delay: 1.5s; /* Add a 2-second delay before the transition */
-        }
-            </style>
-            
             <img src="./images/favicon.png" alt="Your Logo" class="custom-logo" id="custom-logo">
               <div class="nav-contact">
                   <a href="./contact.html">Contact<span class="wiggle"></span></a>
@@ -1001,8 +986,9 @@ window.addEventListener("scroll", handleScroll);
                             </div>
                         </div>
                     </div>
+                     </div>
                 </footer>           
-            </div>
+           
         </div>
     </div>
     <div class="scroll-arrow-wrap pos-f monitor-preload" data-preloading="on">

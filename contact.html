@@ -1,277 +1,387 @@
 <!DOCTYPE html>
-<html lang="en-EN">
-
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-</style>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <meta name="keywords" content="agentie full-service, advertising, 360 vision, brandaffair, be a flamingo in a flock of pigeons,  branding, campanii, campanii integrate, romania, digital, online, aplicatii, website, webdesign, branding, packaging, BTL, TTL,  3d modeling, creativ, grafica, carti vizita, app design, social media, strategie, art director, creative, creatie si strategie, graphic design, creare site, conferinte, spoturi TV, inovatie, logo, creare logo, agentie romania, digital agency, integrated campaigns, TV spots,  campaigns, application design,  digital strategy, creative agency, innovation agency, advertising agency, brainstorming, flyer, outdoor, stand design, logo design, illustration, storyboard, concept, concept art, 3D,">
-    <meta name="description" content="360 vision agency">
-    <meta property="og:image" content="https://brandaffair.ro/cover.jpg">
-    <link href="./assets/ea8fd523/css/libs/swiper.min.css" rel="stylesheet">
-    <link href="./assets/ea8fd523/css/libs/jquery.fullpage.css" rel="stylesheet">
-    <link href="./assets/ea8fd523/css/libs/animations.css" rel="stylesheet">
-    <link href="./assets/ea8fd523/css/styles.css?v=3.2111" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="76x76" href="./favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="./favicon.png">
-    <link rel="manifest" href="./assets/ea8fd523/images/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="./assets/ea8fd523/images/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121053166-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        gtag('js', new Date());
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-        gtag('config', 'UA-121053166-1');
-    </script>
+        body {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
+        .header {
+            position: fixed;
+            width: 100%;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 1rem 12rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/random/1920x1080/?pattern') center/cover;
+            opacity: 0.1;
+            animation: parallax 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes parallax {
+            from { transform: translateY(0) scale(1.1); }
+            to { transform: translateY(-5%) scale(1); }
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .contact-section {
+            max-width: 1280px;
+            margin: -6rem auto 4rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-info h2,
+        .contact-form h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-info a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--primary);
+        }
+
+        .contact-info li:hover i {
+            transform: scale(1.1);
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.75rem;
+            background: transparent;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            color: var(--secondary);
+            transition: var(--transition);
+            background: white;
+            padding: 0 0.5rem;
+        }
+
+        .form-group input:focus ~ label,
+        .form-group input:valid ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group textarea:valid ~ label {
+            top: -0.7rem;
+            left: 0.8rem;
+            font-size: 0.875rem;
+            color: var(--primary);
+        }
+
+        button {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+            transition: transform 0.5s;
+        }
+
+        button:hover::before {
+            transform: translate(-50%, -50%) scale(2);
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                margin-top: -4rem;
+                padding: 0 1rem;
+            }
+
+            .social-links {
+                display: none;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <div class="wrapper specPage   notLoaded">
-        <div class="loadingScreen">
-            <div class="reveal-1"></div>
-            <div class="reveal-2"></div>
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <i class="fa-solid fa-house"></i>
+                Cricket Association for the Blind
+            </a>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Let's Create Something Amazing</h1>
+            <p>Connect with us and turn your vision into reality</p>
         </div>
-        <div class="mainWrap contact">
-            <div class="headerWrap">
-                <div class="mainBar">
-                    <div class="menu">
-                        <a href="./index.html">
-                            <i class="fa-solid fa-house fa-fade fa-2xl" style="color: #004bfa;"></i>
-                          </a>
-                        <div class="logus">
-                            <a class="logo" href="./index.html"></a>
-                          </div>    
-                        <div class="toggleWrap">
-                        <div class="rightNav">
-                                  <ul>
-                                    <li><a href="#" class="icon fb" target="_blank"></a>
-                                    </li>
-                                    <li><a href="#" class="icon in" target="_blank"></a></li>
-                                    <li><a href="#" class="icon insta" target="_blank"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="hamMenu"></div>
-                    </div>
-                </div>
-            </div>
+    </section>
 
-
-            <div class="splashWrap notSlider contact animatedParent animateOnce" data-sequence="300">
-                <div class="gradBg"></div>
-                <div class="envSun contactSun animated fadeIn" data-id="1"></div>
-                <div class="slideTitle contact animated fadeInUpShort" data-id="2">Connect With Us</div>
-                <div class="animal cAn animated fadeInUpShort" data-id="3"></div>
-                <div class="envClouds contactClouds"></div>
-            </div>
-            <div class="contactWrap">
-
-                <style>
-                 /* Common styles for all screen sizes */
-.contactWrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.infoWrap:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
-}
-
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    opacity: 0;
-    animation: fadeIn 3s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    margin: 10px 0;
-}
-
-a {
-    text-decoration: none;
-    color: #333;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Media query for mobile screens */
-@media screen and (max-width: 768px) {
-    .contactWrap {
-        flex-direction: column; /* Stack items vertically */
-        height: auto; /* Remove fixed height */
-    }
-
-    .infoWrap:hover {
-        transform: none; /* Remove scaling on hover */
-    }
-
-    .title {
-        font-size: 20px; /* Decrease font size for smaller screens */
-    }
-
-    ul {
-        padding-left: 20px; /* Add some padding to the left of the list items */
-    }
-}
-
-
-                </style>
-                <div class="contactBlock infoBlock">
-                    <div class="container">
-                        <div class="infoWrap">
-                            <div class="title">Meet us</div>
-                            <ul>
-                                <li class="phone"><a href="tel:8459023689">8459023689</a></li>
-                                <li class="phone"><a href="tel:9423603630">9423603630</a></li>
-                                <li class="mail"><a href="mailto:vidharbha.blindcricket@gmail.com">vidharbha.blindcricket@gmail.com</a></li>
-                                <!-- <li class="adr"><a href="https://goo.gl/maps/UTZhQmUjPrM2" target="_blank">Amman St, no 35,  4th floor, ap 10, Bucharest</a></li> -->
-                            </ul>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="contactBlock pitchBlock">
-                    <form class="infoWrap" id="sendContact">
-                        <div class="title">Pitch us</div>
-                        <div class="text">
-                            <input type="text" class="contactNameInpt">
-                            <input type="text" class="contactMailInpt">
-                            <input type="text" class="contactProjectInpt"> hello,
-                            <br>
-                            <br> my name is
-                            <div class="cFormInput" contenteditable="true" data-target="contactNameInpt"></div> and my e-mail address is
-                            <div class="cFormInput" contenteditable="true" data-target="contactMailInpt"></div> and I would like to discuss about
-                            <div class="cFormInput" contenteditable="true" data-target="contactProjectInpt"></div>.<br>
-                        </div>
-                        <button type="submit" class="gradButton">send</button>
-                    </form>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="bottomCookies">
-            <div class="cookiesMobileWrap">
-                <div class="cookiesText">
-                    <a href="#" class="textLink terms black">Terms
-                                & Conditions</a>
-                </div>
-            </div>
+    <section class="contact-section">
+        <div class="contact-card contact-info">
+            <h2>Meet Us</h2>
+            <ul>
+                <li>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:8459023689">845-902-3689</a>
+                </li>
+                <li>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:9423603630">942-360-3630</a>
+                </li>
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:vidharbha.blindcricket@gmail.com">vidharbha.blindcricket@gmail.com</a>
+                </li>
+            </ul>
         </div>
 
+        <div class="contact-card contact-form">
+            <h2>Pitch Us</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" required>
+                    <label for="name">Your Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" required>
+                    <label for="email">Your Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="4" required></textarea>
+                    <label for="message">Project Details</label>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-    </div>
-
-
-    <script src="./assets/df8e14a3/jquery.js"></script>
-    <script src="./assets/b6af9d34/yii.js"></script>
-    <script src="./assets/ea8fd523/js/libs/swiper.js?v=1.6"></script>
-    <script src="./assets/ea8fd523/js/libs/jquery.fullpage.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
-    <script src="./assets/ea8fd523/js/libs/css3-animate-it.js"></script>
-    <script src="./assets/ea8fd523/js/map.js"></script>
-    <script src="./assets/ea8fd523/js/main.js?v=3.2112"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOqxGoTOsGMLHfIHTHJn-E5LGXWigwauk&amp;callback=initMap"></script>
-    <script src="./assets/b6af9d34/yii.validation.js"></script>
-    <script src="./assets/b6af9d34/yii.activeForm.js"></script>
-    <script src="./assets/d066e91e/jquery.pjax.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function() {
-            jQuery('#w1').yiiActiveForm([{
-                "id": "feedback-name",
-                "name": "name",
-                "container": ".field-feedback-name",
-                "input": "#feedback-name",
-                "error": ".help-block.help-block-error",
-                "validate": function(attribute, value, messages, deferred, $form) {
-                    yii.validation.string(value, messages, {
-                        "message": "Name must be a string.",
-                        "max": 255,
-                        "tooLong": "Name should contain at most 255 characters.",
-                        "skipOnEmpty": 1
-                    });
-                    yii.validation.required(value, messages, {
-                        "message": "It is required"
-                    });
-                }
-            }, {
-                "id": "feedback-email",
-                "name": "email",
-                "container": ".field-feedback-email",
-                "input": "#feedback-email",
-                "error": ".help-block.help-block-error",
-                "validate": function(attribute, value, messages, deferred, $form) {
-                    yii.validation.string(value, messages, {
-                        "message": "E-mail must be a string.",
-                        "max": 255,
-                        "tooLong": "E-mail should contain at most 255 characters.",
-                        "skipOnEmpty": 1
-                    });
-                    yii.validation.required(value, messages, {
-                        "message": "It is required"
-                    });
-                }
-            }, {
-                "id": "feedback-message",
-                "name": "message",
-                "container": ".field-feedback-message",
-                "input": "#feedback-message",
-                "error": ".help-block.help-block-error",
-                "validate": function(attribute, value, messages, deferred, $form) {
-                    yii.validation.required(value, messages, {
-                        "message": "It is required"
-                    });
-                }
-            }], []);
-            jQuery(document).pjax("#w0 a", "#w0", {
-                "push": false,
-                "replace": false,
-                "timeout": 1000,
-                "scrollTo": false
-            });
-            jQuery(document).on('submit', "#w0 form[data-pjax]", function(event) {
-                jQuery.pjax.submit(event, '#w0', {
-                    "push": false,
-                    "replace": false,
-                    "timeout": 1000,
-                    "scrollTo": false
-                });
-            });
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const button = this.querySelector('button');
+            button.style.pointerEvents = 'none';
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                this.reset();
+                setTimeout(() => {
+                    button.innerHTML = 'Send Message';
+                    button.style.pointerEvents = 'auto';
+                }, 2000);
+            }, 1500);
         });
+
+        // Reveal animations on scroll
+        const cards = document.querySelectorAll('.contact-card');
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        cards.forEach(card => observer.observe(card));
     </script>
 </body>
-
 </html>

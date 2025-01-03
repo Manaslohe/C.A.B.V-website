@@ -1,0 +1,83 @@
+.png-image {
+    width: 180px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: -520px;
+    margin-top: -40px;
+    transition: all 0.3s ease; /* Add a smooth transition for all properties */
+}
+
+.png-image:hover {
+    transform: scale(1.1); /* Enlarge the image on hover */
+}
+
+/* Intro (fade-in) animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply intro animation */
+.png-image {
+    opacity: 0;
+    animation: fadeIn 1.0s ease-in-out forwards;
+}
+
+@media (max-width: 768px) {
+    .png-image {
+        margin: 0 auto; /* Center the image horizontally */
+        display: block;
+        max-width: 100%; /* Make sure it doesn't exceed the screen width */
+        padding-bottom: 40px;
+    }
+    
+    /* Click animation */
+    .png-image:active {
+        transform: scale(0.9); /* Shrink the image on click */
+    }
+}
+
+/* Link Styles */
+/* Default link styles */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* UPI link styles */
+.upi-link {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .upi-link {
+        padding: 0; /* Remove padding for mobile view */
+    }
+}
+
+.upi-link:hover {
+    background-color: #0056b3;
+}
+
+/* Apply animation to the link */
+.upi-link {
+    animation: fadeIn 1s ease;
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+    .upi-link {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
