@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9" lang="en-GB"> <![endif]-->
-<!--[if IE 9]> <html class="no-js lt-ie10" lang="en-GB"> <![endif]-->
-<!--[if gt IE 9]><!-->
 <html class="no-js" lang="en-GB">
-<!--<![endif]-->
-
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -24,17 +19,18 @@
     <link rel="stylesheet" href="./css/nicepage-site.css" media="screen">
     <link rel="stylesheet" href="./css/Page-25.css" media="screen">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/committee.css">
     <script class="u-script" type="text/javascript" src="./js/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 5.11.5, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
-    <script src="./js/webfont.js" type="text/javascript"></script>
+    <script src="./js/webfont.js" type="text/javascript" defer></script>
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="./css/regenerate.webflow.cb5544745.css" />
     <link rel="stylesheet" href="./css/header.css" />
-    <script src="./js/modernizr-custom.js"></script>
+    <script src="./js/modernizr-custom.js" defer></script>
     <script src="https://kit.fontawesome.com/487c4a1da6.js" crossorigin="anonymous"></script>
 
       <script type="text/javascript">
@@ -208,26 +204,64 @@ window.addEventListener("scroll", handleScroll);
             // Trigger the initial check to see if elements are in the viewport on page load
             handleScroll();
         </script>
-        <style>
-        body {
-            overflow-x: hidden; /* Remove horizontal scrollbar */
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="./css/nicepage.css" as="style">
+    <link rel="preload" href="./css/styles.css" as="style">
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            if ('loading' in HTMLImageElement.prototype) {
+                images.forEach(img => {
+                    img.loading = 'lazy';
+                });
+            } else {
+                // Fallback for browsers that don't support lazy loading
+                const script = document.createElement('script');
+                script.src = './js/lazysizes.min.js';
+                document.body.appendChild(script);
+            }
+        });
+    </script>
+    <script>
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (!scrollTimeout) {
+                scrollTimeout = setTimeout(() => {
+                    scrollTimeout = null;
+                    handleScroll();
+                }, 20);
+            }
+        }, { passive: true });
+    </script>
+    <script>
+        // Combine isInViewport and handleScroll functions
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
         }
-        @media (max-width: 768px) {
-            .container {
-                top: 0; /* Fix the top position */
-                height: auto; /* Adjust height for mobile view */
+
+        function handleScroll() {
+            // Handle both intro and fade-in elements
+            const introElement = document.getElementById("intro");
+            const fadeElements = document.querySelectorAll('.fade-in-text');
+            
+            if (introElement && isElementInViewport(introElement)) {
+                introElement.classList.add("visible");
             }
-            h1 {
-                margin-top: 20px; /* Adjust margin for mobile view */
-            }
-            .footer-v1-social {
-                display: flex;
-                justify-content: center; /* Horizontally center-align */
-                align-items: center; /* Vertically center-align */
-                text-align: center;
-            }
+            
+            fadeElements.forEach(element => {
+                if (isElementInViewport(element)) {
+                    element.style.opacity = '1';
+                }
+            });
         }
-    </style>
+    </script>
 </head>
 <body class="body js-watch-state" data-state="who">
     <div class="preloader-shield logo-shield-wrap pos-a-center" data-color-state="white">
@@ -244,7 +278,6 @@ window.addEventListener("scroll", handleScroll);
         <div class="ledge-wrap pos-a-t-l full-size">
             <div class="ledge ledge-minus-16-deg"></div>
         </div>
-    </div>
     
           <ul class="page-bg pos-f full-size js-watch-state js-figures-horizon" data-state="who" data-preloading="on">
               <li><div class="horizon-bg pos-a-t-l full-size"></div></li>
@@ -281,154 +314,14 @@ window.addEventListener("scroll", handleScroll);
               
           </nav>
           
-</div>
-</div>
     <!-- Page Content -->
-    
+ 
     <div class="pos-a-t-l full-size page-content js-page-content" id="page-content" data-active="off">
         <div id="ps-scroll-container" class="scrolling-content js-scrolling-content full-size pos-a-t-l who-content" data-state="who">
             <div class="scrolling-content-wrap">
                 <div class="flex-vert-center masterhead js-masterhead js-full-height ">
                     <h1 class="letter-split">C.A.B.V</h1>
                     <h2 class="letter-split">Cricket Association for the Blind in Vidharbha</h2>
-                    <style>
-                        @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');
-                
-                        :root {
-                            --text-color: hsla(210, 50%, 85%, 1);
-                            --shadow-color: hsla(210, 40%, 52%, .4);
-                            --btn-color: hsl(210, 80%, 42%);
-                            --bg-color: #141218;
-                        }
-                
-                        * {
-                            box-sizing: border-box;
-                        }
-                
-                        .container {
-            display: flex;
-            justify-content: center;
-            top: 100px;
-            align-items: flex-start; /* Align content slightly down from the center */
-            height: 10vh; /* Set height back to 100vh */
-            padding-top: 0; /* Remove top padding */
-        }
-                
-                        .custom-button {
-                            position: relative;
-                            padding: 15px 20px;
-                            border: none;
-                            background: none;
-                            cursor: pointer;
-                            
-                
-                            font-family: "Source Code Pro";
-                            font-weight: 900;
-                            text-transform: uppercase;
-                            font-size: 30px;
-                            color: var(--text-color);
-                
-                            background-color: var(--btn-color);
-                            box-shadow: var(--shadow-color) 2px 2px 22px;
-                            border-radius: 4px;
-                            z-index: 0;
-                            overflow: hidden;
-                        }
-                
-                        .custom-button:focus {
-                            outline-color: transparent;
-                            box-shadow: var(--btn-color) 2px 2px 22px;
-                        }
-                
-                        .right::after, .custom-button::after {
-                            content: var(--content);
-                            display: block;
-                            position: absolute;
-                            white-space: nowrap;
-                            line-height: 1;
-                            padding: 40px 40px;
-                            pointer-events: none;
-                        }
-                
-                        .custom-button::after {
-                            font-weight: 200;
-                            top: -30px;
-                            left: -20px;
-                        }
-                
-                        .right, .left {
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            top: 0;
-                        }
-                
-                        .right {
-                            left: 66%;
-                        }
-                
-                        .left {
-                            right: 66%;
-                        }
-                
-                        .right::after {
-                            top: -30px;
-                            left: calc(-66% - 20px);
-                
-                            background-color: var(--bg-color);
-                            color: transparent;
-                            transition: transform .4s ease-out;
-                            transform: translate(0, -90%) rotate(0deg)
-                        }
-                
-                        .custom-button:hover .right::after {
-                            transform: translate(0, -47%) rotate(0deg)
-                        }
-                
-                        .custom-button .right:hover::after {
-                            transform: translate(0, -50%) rotate(-7deg)
-                        }
-                
-                        .custom-button .left:hover ~ .right::after {
-                            transform: translate(0, -50%) rotate(7deg)
-                        }
-                
-                        /* bubbles */
-                        .custom-button::before {
-                            content: '';
-                            pointer-events: none;
-                            opacity: .6;
-                            background:
-                                radial-gradient(circle at 20% 35%, transparent 0, transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
-                                radial-gradient(circle at 75% 44%, transparent 0, transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),
-                                radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);
-                
-                            width: 100%;
-                            height: 300%;
-                            top: 0;
-                            left: 0;
-                            position: absolute;
-                            animation: bubbles 5s linear infinite both;
-                        }
-                
-                        @keyframes bubbles {
-                            from {
-                                transform: translate();
-                            }
-                            to {
-                                transform: translate(0, -66.666%);
-                            }
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="container">
-                        <button class="custom-button"  onclick="window.location.href='./donate.html';" style="--content: 'Donate Now!';">
-                            <div class="left"></div>
-                            Donate Now!
-                            <div class="right"></div>
-                        </button>
-                        </div>
                 </div>
                 
                 <section id="aboutus" class="js-monitor-scroll" data-active="off">
@@ -491,7 +384,7 @@ window.addEventListener("scroll", handleScroll);
                                 <div class="side-info">
                                     <h2 style="opacity:100;font-family:Ginger Bold;font-size:20;color:#1544C0">Blind Cricket Formats:</h2>
                                         <p style="color: black;">Blind cricket is usually played in two formats worldwide: T20 and OD (One Day). However, in blind cricket, the OD format differs from sighted cricket. In blind cricket, OD matches consist of 40 overs, whereas in sighted cricket, it is a fifty overs format.</p><br><br>
-                                                <h2 data-w-id="1d2fcb84-cef0-2f89-4af8-d3bd56da2edf" style="opacity:100;font-family:Ginger Bold;font-size:20;color:#1544C0">ICC WBCC (World Blind Cricket Council):</h2>
+                                                <h2 data-w-id="1d2fcb84-cef0-2f89-4af8-d3bd56da2ee2" style="opacity:100;font-family:Ginger Bold;font-size:20;color:#1544C0">ICC WBCC (World Blind Cricket Council):</h2>
                                         <p style="color: black;">Just like the ICC WBCC (World Blind Cricket Council) serves as the global governing body for blind cricket.</p>
                                 </div>
                             </div>
@@ -514,210 +407,10 @@ window.addEventListener("scroll", handleScroll);
                                 <div data-w-id="47f59d94-a6de-3a75-af1f-cde9f99594f5" style="opacity:0" class="divider color no-margin-bottom"></div>
                         </div>
                         </div>
+                        
                         <div class="u-body u-xl-mode" data-lang="en">
                             <section class="u-clearfix u-container-align-center-lg u-container-align-center-md u-container-align-center-xl u-valign-middle u-white u-section-1" id="sec-4583">
-                                <style data-mode="XXL">
-                                    @media (max-width: 0px) {
-                                        .u-section-1 {
-                                            min-height: 899px;
-                                        }
-                                        .u-section-1 .u-text-1 {
-                                            width: 850px;
-                                            --animation-custom_in-translate_x: 0px;
-                                            --animation-custom_in-translate_y: 0px;
-                                            --animation-custom_in-opacity: 0;
-                                            --animation-custom_in-rotate: 0deg;
-                                            --animation-custom_in-scale: 0.3;
-                                            margin-top: 91px;
-                                            margin-left: auto;
-                                            margin-right: auto;
-                                            margin-bottom: 0;
-                                        }
-                                        .u-block-ce02-4 {
-                                            background-image: none;
-                                            text-transform: uppercase;
-                                            letter-spacing: 3px;
-                                            font-size: 1rem;
-                                            border-style: none;
-                                            font-weight: 700;
-                                            --animation-custom_in-translate_x: 300px;
-                                            --animation-custom_in-translate_y: 0px;
-                                            --animation-custom_in-opacity: 0;
-                                            --animation-custom_in-rotate: 0deg;
-                                            --animation-custom_in-scale: 0.27;
-                                            margin-top: 42px;
-                                            margin-left: auto;
-                                            margin-right: auto;
-                                            margin-bottom: 0;
-                                            padding-top: 14px;
-                                            padding-right: 52px;
-                                            padding-bottom: 16px;
-                                            padding-left: 51px;
-                                        }
-                                        .u-section-1 .u-shape-1 {
-                                            height: 120px;
-                                            margin-top: 202px;
-                                            margin-bottom: 0;
-                                            --animation-custom_in-translate_x: -300px;
-                                            --animation-custom_in-translate_y: 0px;
-                                            --animation-custom_in-opacity: 0;
-                                            --animation-custom_in-rotate: 0deg;
-                                            --animation-custom_in-scale: 1;
-                                        }
-                                        .u-section-1 .u-layout-wrap-1 {
-                                            width: 1140px;
-                                            margin-top: -280px;
-                                            margin-left: auto;
-                                            margin-right: auto;
-                                            margin-bottom: 0;
-                                        }
-                                        .u-section-1 .u-layout-cell-1 {
-                                            min-height: 377px;
-                                            --animation-custom_in-translate_x: 0px;
-                                            --animation-custom_in-translate_y: -100px;
-                                            --animation-custom_in-opacity: 0;
-                                            --animation-custom_in-rotate: 0deg;
-                                            --animation-custom_in-scale: 1;
-                                        }
-                                        .u-section-1 .u-container-layout-1 {
-                                            padding-top: 0;
-                                            padding-bottom: 0;
-                                            padding-left: 0;
-                                            padding-right: 0;
-                                        }
-                                        .u-section-1 .u-image-1 {
-                                            height: 311px;
-                                            width: 238px;
-                                            margin-top: 0;
-                                            margin-bottom: 0;
-                                            margin-left: auto;
-                                            margin-right: auto;
-                                        }
-                                        .u-section-1 .u-layout-cell-2 {
-                                            min-height: 103px;
-                                        }
-                                        .u-section-1 .u-container-layout-2 {
-                                            padding-top: 30px;
-                                            padding-bottom: 30px;
-                                            padding-left: 30px;
-                                            padding-right: 30px;
-                                        }
-                                        .u-section-1 .u-layout-cell-3 {
-                                            min-height: 99px;
-                                        }
-                                        .u-section-1 .u-container-layout-3 {
-                                            padding-top: 30px;
-                                            padding-bottom: 30px;
-                                            padding-left: 30px;
-                                            padding-right: 30px;
-                                        }
-                                        .u-block-ce02-14 {
-                                            min-height: 381px;
-                                            --animation-custom_in-translate_x: 0px;
-                                            --animation-custom_in-translate_y: 100px;
-                                            --animation-custom_in-opacity: 0;
-                                            --animation-custom_in-rotate: 0deg;
-                                            --animation-custom_in-scale: 1;
-                                        }
-                                        .u-block-ce02-15 {
-                                            padding-top: 0;
-                                            padding-bottom: 0;
-                                            padding-left: 0;
-                                            padding-right: 0;
-                                        }
-                                        .u-block-ce02-16 {
-                                            height: 311px;
-                                            width: 238px;
-                                            margin-top: 0;
-                                            margin-bottom: 0;
-                                            margin-left: auto;
-                                            margin-right: auto;
-                                        }
-                                        .u-block-ce02-17 {
-                                            min-height: 374px;
-                                            --animation-custom_in-translate_x: 0px;
-                                            --animation-custom_in-translate_y: -100px;
-                                            --animation-custom_in-opacity: 0;
-                                            --animation-custom_in-rotate: 0deg;
-                                            --animation-custom_in-scale: 1;
-                                        }
-                                        .u-block-ce02-18 {
-                                            padding-top: 0;
-                                            padding-bottom: 0;
-                                            padding-left: 0;
-                                            padding-right: 0;
-                                        }
-                                        .u-block-ce02-19 {
-                                            height: 311px;
-                                            width: 238px;
-                                            margin-top: 0;
-                                            margin-bottom: 0;
-                                            margin-left: auto;
-                                            margin-right: auto;
-                                        }
-                                        .u-section-1 .u-layout-cell-6 {
-                                            min-height: 106px;
-                                        }
-                                        .u-section-1 .u-container-layout-6 {
-                                            padding-top: 30px;
-                                            padding-bottom: 30px;
-                                            padding-left: 30px;
-                                            padding-right: 30px;
-                                        }
-                                        .u-section-1 .u-layout-cell-7 {
-                                            min-height: 106px;
-                                        }
-                                        .u-section-1 .u-container-layout-7 {
-                                            padding-top: 30px;
-                                            padding-bottom: 30px;
-                                            padding-left: 30px;
-                                            padding-right: 30px;
-                                        }
-                                        .u-block-ce02-24 {
-                                            min-height: 374px;
-                                            --animation-custom_in-translate_x: 0px;
-                                            --animation-custom_in-translate_y: 100px;
-                                            --animation-custom_in-opacity: 0;
-                                            --animation-custom_in-rotate: 0deg;
-                                            --animation-custom_in-scale: 1;
-                                        }
-                                        .u-block-ce02-25 {
-                                            padding-top: 0;
-                                            padding-bottom: 0;
-                                            padding-left: 0;
-                                            padding-right: 0;
-                                        }
-                                        .u-block-ce02-26 {
-                                            height: 311px;
-                                            width: 238px;
-                                            margin-top: 0;
-                                            margin-bottom: 0;
-                                            margin-left: auto;
-                                            margin-right: auto;
-                                        }
-                                        .u-section-1 .u-text-2 {
-                                            font-size: 1rem;
-                                            letter-spacing: 0px;
-                                            width: 428px;
-                                            --animation-custom_in-translate_x: 0px;
-                                            --animation-custom_in-translate_y: 300px;
-                                            --animation-custom_in-opacity: 0;
-                                            --animation-custom_in-rotate: 0deg;
-                                            --animation-custom_in-scale: 1;
-                                            margin-top: 46px;
-                                            margin-left: auto;
-                                            margin-right: auto;
-                                            margin-bottom: 60px;
-                                        }
-                                        .u-section-1 .u-btn-1 {
-                                            border-style: solid;
-                                            padding-top: 0;
-                                            padding-bottom: 0;
-                                            padding-left: 0;
-                                            padding-right: 0;
-                                        }
-                                    }
-                                </style>
+                             
                                 <h2 class="u-align-center u-text u-text-default-lg u-text-default-sm u-text-default-xl u-text-default-xs u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1500" style="white-space: nowrap;"class="divider no-margin-bottom">Comittee Members</h2>
                                 <div class="u-expanded-width u-palette-2-base u-shape u-shape-rectangle u-shape-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250"></div>
                                 <div class="u-clearfix u-gutter-26 u-layout-wrap u-layout-wrap-1">
@@ -871,48 +564,53 @@ window.addEventListener("scroll", handleScroll);
                                 </div>
                             </section>
                             </div>
-                            <style>
-                                @media (max-width: 768px) {
-                                  h1 {
-                                    margin-top: 100px;
-                                  }
-                                }
-                              </style>
-                            <h1 style="opacity: 100; font-family: Ginger Bold;color: #1544C0;">Our Partners</h1><br>
-                            <div style="width: 100px;height: 4px;background-color:#1544C0;margin: auto;" class="divider"></div>
-                         
-                            <style>
-                                @media (max-width: 768px) {
-                                  /* Adjust the styles for mobile view */
-                                  p.h2 {
-                                    font-size: 10px; /* Decrease the font size */
-                                    margin-bottom: 30px;
-                                  }
-                                  p {
-                                    font-size: 18px; /* Decrease the font size */
-                                    font-weight: normal; /* Remove bold style for better readability on small screens */
-                                  }
-                                }
-                              </style>
-                        
-    <figure class="text-center">
-        <blockquote class="blockquote">
-            
-            <p class="h2 "style="color: #141218; font-size: 40px;">Our Organisational partners </p>
-          <p style="color:#1544C0; font-size: 30px;font-weight: bold;"> Rashtriy Drishtihin Shikshan AVN Punarvasan Sanstha Nagpur </p>
-        </blockquote>
-        <p class="custom-text fade-in">The organisation focuses on the education of the visually impaired persons it is a premier institute in Nagpur which focuses on the all around development of blind persons 
-            Gyan Jyoti school which is run by the organisation is one of the top institute in all around vidharbha for students.</p>
-            <p style="color: #141218; margin-top: 30px;">Visit their website:<a href="https://rdspsngp.org/" style="color: #141218; font-size: medium;">https://rdspsngp.org/</a></p><br>            
-            <div style="width: 100px;height: 4px;background-color:#1544C0;margin: auto;" class="divider"></div>   <br><br><br> 
-            
-            <p class="h2" style="color: #141218; font-size: 40px;">Our Digital Partners</p>
-          <p style="color:#1544C0; font-size: 30px;font-weight: bold;">Sports Club Official India </p>
-          <br><br>
-        </blockquote>
-        <p class="custom-text fade-in">TThe organisation focuses on promoting blind cricket and other sports through social media </p>
-            <p style="color: #141218; margin-top: 30px;">Visit their Youtube Page:<a href="https://www.youtube.com/c/Sportsclubofficial" style="color: #141218; font-size: medium;">youtube/Sportsclubofficial</a></p> <br><br>     <div style="width: 100px;height: 4px;background-color:#1544C0;margin: auto;" class="divider"></div>
-      </figure>
+
+
+    <section class="partners-section">
+    <div class="section-title-wrapper fade-in">
+        <h1 class="section-title">Our Partners</h1>
+        <div class="divider"></div>
+    </div>
+
+    <div class="partner-container">
+        <div class="partner-card fade-in">
+            <h2 class="partner-title">Organisational Partner</h2>
+            <h3 class="partner-name">Rashtriy Drishtihin Shikshan AVN Punarvasan Sanstha Nagpur</h3>
+            <p class="partner-description">
+                A premier institute in Nagpur dedicated to the education and all-around development of visually impaired persons. Their Gyan Jyoti school stands as one of the top institutes across Vidharbha, empowering students through comprehensive education and support.
+            </p>
+            <a href="https://rdspsngp.org/" target="_blank" class="partner-link">
+                Visit Website <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="partner-card fade-in">
+            <h2 class="partner-title">Digital Partner</h2>
+            <h3 class="partner-name">Sports Club Official India</h3>
+            <p class="partner-description">
+                A dedicated organization leveraging social media to promote blind cricket and various sports, creating awareness and fostering inclusivity in sports across India.
+            </p>
+            <a href="https://www.youtube.com/c/Sportsclubofficial" target="_blank" class="partner-link">
+                Visit YouTube Channel <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Add this script before closing body tag -->
+<script>
+    function checkPartnerCards() {
+        const cards = document.querySelectorAll('.partner-card, .section-title-wrapper');
+        cards.forEach(card => {
+            if (isElementInViewport(card)) {
+                card.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkPartnerCards);
+    window.addEventListener('load', checkPartnerCards);
+</script>
 
                         <br><br><br>
                         <button class="custom-button" onclick="window.location.href='./donate.html';" style="--content: 'Donate Now!';">
@@ -922,6 +620,7 @@ window.addEventListener("scroll", handleScroll);
                         </button>
                         <div class="team-wrapper centered second-in-section"></div>
                     </div>
+                    <!-- Remove the first footer -->
                     <footer>
                         <div id="Services" class="section no-padding-bottom no-padding-top footer-top">
                             <div class="team-wrapper side-paddings">
@@ -987,37 +686,19 @@ window.addEventListener("scroll", handleScroll);
                         </div>
                     </div>
                      </div>
-                </footer>           
-           
+                </footer>    
+                </div>
+            </div>
         </div>
     </div>
+    <!-- Keep scroll arrow and modal code -->
     <div class="scroll-arrow-wrap pos-f monitor-preload" data-preloading="on">
         <div class="scroll-arrow">
             <span></span><span></span>
         </div>
     </div>
     
-    <div class="modal contact-modal js-contact-modal" data-active="off">
-        <div class="full-size pos-a-t-l">
-            <div class="ledge ledge-minus-16-deg"></div>
-
-            <div class="contact-social pos-a js-contact-social">
-    <h3><span>Connect With Us</span></h3>
-    <ul class="social-list">
-        <li><a target="_blank"class="fa-regular fa-envelope fa-bounce fa-2xl" href="#"></a></li>
-        <li><a target="_blank"class="fa-brands fa-instagram fa-bounce fa-2xl"href="#"></a></li>
-        <li><a target="_blank"class="fa-brands fa-facebook fa-bounce fa-2xl" href="#"></a></li>
-        <li><a target="_blank"class="fa-brands fa-linkedin fa-bounce fa-2xl" href="#"></a></li>
-    </ul>            
-</div>  
-<div class="contact-modal-content">
-                <h4 class="no-line"><br><br><br><br><br><br>Contact us</h4>
-                <a href="tel:8888883910" class=" fa-solid fa-phone fa-2x"><span class="huge-text ">8888883910</span></a>
-              </div>
-        <a href="#" class="close js-close-contact">
-            <span></span><span></span>
-        </a>
-    </div>
+ 
     
 </body>
 <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=617871f8849a56fd144246a9" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -1036,4 +717,17 @@ window.addEventListener("scroll", handleScroll);
 <script src="./js/main.js"></script>
 <script src="./js/analytics.js"></script>
 <script src="./js/jquery.touchSwipe.min.js"></script>
+<script>
+    function checkFadeElements() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(element => {
+            if (isElementInViewport(element)) {
+                element.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkFadeElements);
+    window.addEventListener('load', checkFadeElements);
+</script>
 </html>

@@ -1078,6 +1078,7 @@ body[data-state="work"] .mob-nav::before {
     -webkit-transition: opacity 0.7s cubic-bezier(0.52, 0.01, 0.16, 1), -webkit-transform 1.25s cubic-bezier(0.62, 0.02, 0.34, 1);
     -moz-transition: opacity 0.7s cubic-bezier(0.52, 0.01, 0.16, 1), -moz-transform 1.25s cubic-bezier(0.62, 0.02, 0.34, 1);
     transition: opacity 0.7s cubic-bezier(0.52, 0.01, 0.16, 1), transform 1.25s cubic-bezier(0.62, 0.02, 0.34, 1);
+    background: #f5f5f5; /* Solid color fallback */
 }
 
 .page-bg[data-preloading="on"] .horizon-bg {
@@ -1103,7 +1104,7 @@ body[data-state="work"] .mob-nav::before {
 }
 
 .page-bg li:nth-child(1) .horizon-bg {
-    background: url("../img/bg/horizon-intro.jpg") no-repeat center center/cover;
+    background: #f5f5f5; /* Solid color fallback */
 }
 
 .page-bg li:nth-child(2) {
@@ -1111,7 +1112,7 @@ body[data-state="work"] .mob-nav::before {
 }
 
 .page-bg li:nth-child(2) .horizon-bg {
-    background: url("../img/bg/horizon-who.jpg") no-repeat center center/cover;
+    background: #f5f5f5; /* Solid color fallback */
 }
 
 .page-bg li:nth-child(3) {
@@ -1119,7 +1120,7 @@ body[data-state="work"] .mob-nav::before {
 }
 
 .page-bg li:nth-child(3) .horizon-bg {
-    background: url("../img/bg/horizon-what.jpg") no-repeat center center/cover;
+    background: #f5f5f5; /* Solid color fallback */
 }
 
 .page-bg li:nth-child(4) {
@@ -1127,7 +1128,7 @@ body[data-state="work"] .mob-nav::before {
 }
 
 .page-bg li:nth-child(4) .horizon-bg {
-    background: url("../img/bg/horizon-work.jpg") no-repeat center center/cover;
+    background: #f5f5f5; /* Solid color fallback */
 }
 
 .page-bg li:nth-child(5) {

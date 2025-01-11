@@ -2,386 +2,206 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Contact Us - Cricket Association for the Blind</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #64748b;
-            --bg-light: #f8fafc;
-            --text-dark: #1e293b;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        .header {
-            position: fixed;
-            width: 100%;
-            padding: 1.25rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-links a {
-            color: var(--secondary);
-            font-size: 1.25rem;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .hero {
-            min-height: 70vh;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 8rem 1rem 12rem;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('https://source.unsplash.com/random/1920x1080/?pattern') center/cover;
-            opacity: 0.1;
-            animation: parallax 20s infinite alternate ease-in-out;
-        }
-
-        @keyframes parallax {
-            from { transform: translateY(0) scale(1.1); }
-            to { transform: translateY(-5%) scale(1); }
-        }
-
-        .hero-content {
-            position: relative;
-            max-width: 800px;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-
-        .contact-section {
-            max-width: 1280px;
-            margin: -6rem auto 4rem;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            position: relative;
-        }
-
-        .contact-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .contact-info h2,
-        .contact-form h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .contact-info ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-info li {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .contact-info i {
-            color: var(--primary);
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .contact-info a {
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-info a:hover {
-            color: var(--primary);
-        }
-
-        .contact-info li:hover i {
-            transform: scale(1.1);
-        }
-
-        .form-group {
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 0.75rem;
-            background: transparent;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-        }
-
-        .form-group label {
-            position: absolute;
-            left: 1rem;
-            top: 1rem;
-            color: var(--secondary);
-            transition: var(--transition);
-            background: white;
-            padding: 0 0.5rem;
-        }
-
-        .form-group input:focus ~ label,
-        .form-group input:valid ~ label,
-        .form-group textarea:focus ~ label,
-        .form-group textarea:valid ~ label {
-            top: -0.7rem;
-            left: 0.8rem;
-            font-size: 0.875rem;
-            color: var(--primary);
-        }
-
-        button {
-            width: 100%;
-            background: var(--primary);
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%) scale(0);
-            border-radius: 50%;
-            transition: transform 0.5s;
-        }
-
-        button:hover::before {
-            transform: translate(-50%, -50%) scale(2);
-        }
-
-        button:hover {
-            background: var(--primary-dark);
-        }
-
-        @media (max-width: 768px) {
-            .contact-section {
-                margin-top: -4rem;
-                padding: 0 1rem;
-            }
-
-            .social-links {
-                display: none;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/contact.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
     <header class="header">
         <nav class="nav">
-            <a href="/" class="logo">
-                <i class="fa-solid fa-house"></i>
-                Cricket Association for the Blind
+            <a href="/" class="back-btn" aria-label="Go back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
             </a>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="/" class="logo" aria-label="Home">
+                <i class="fas fa-cricket-bat-ball"></i>
+                <span>Cricket Association for the Blind</span>
+            </a>
+            <div class="social-links" aria-label="Social Media Links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Let's Create Something Amazing</h1>
-            <p>Connect with us and turn your vision into reality</p>
+            <h1>Get in Touch</h1>
+            <p>Join us in making cricket accessible to everyone. Your support matters.</p>
         </div>
     </section>
 
-    <section class="contact-section">
-        <div class="contact-card contact-info">
-            <h2>Meet Us</h2>
-            <ul>
-                <li>
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:8459023689">845-902-3689</a>
-                </li>
-                <li>
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:9423603630">942-360-3630</a>
-                </li>
-                <li>
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:vidharbha.blindcricket@gmail.com">vidharbha.blindcricket@gmail.com</a>
-                </li>
-            </ul>
-        </div>
+    <div class="contact-wrapper">
+        <div class="contact-grid">
+            <div class="contact-info" data-scroll>
+                <h2>Contact Us</h2>
+                <div class="info-items-wrapper">
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Call Us</h3>
+                            <a href="tel:8459023689">845-902-3689</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Alternative</h3>
+                            <a href="tel:9423603630">942-360-3630</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email Us</h3>
+                            <a href="mailto:vidharbha.blindcricket@gmail.com">vidharbha.blindcricket@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-location-dot"></i>
+                        <div>
+                            <h3>Visit Us</h3>
+                            <p>Vidarbha Cricket Association, Civil Lines, Nagpur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="contact-card contact-form">
-            <h2>Pitch Us</h2>
-            <form id="contactForm">
-                <div class="form-group">
-                    <input type="text" id="name" required>
-                    <label for="name">Your Name</label>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" required>
-                    <label for="email">Your Email</label>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" rows="4" required></textarea>
-                    <label for="message">Project Details</label>
-                </div>
-                <button type="submit">Send Message</button>
-            </form>
+            <div class="contact-form" data-scroll>
+                <form id="contactForm" class="form-content">
+                    <h2>Send Message</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                    </button>
+                </form>
+            </div>
         </div>
-    </section>
+    </div>
 
     <script>
+        // Add header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Initialize ScrollReveal
+        ScrollReveal().reveal('[data-scroll]', {
+            delay: 200,
+            distance: '50px',
+            duration: 800,
+            origin: 'bottom',
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+            interval: 100
+        });
+
+        // Form animations
+        const formGroups = document.querySelectorAll('.form-group');
+        formGroups.forEach((group, index) => {
+            group.style.opacity = '0';
+            group.style.animation = `slideInRight 0.5s ease ${index * 0.1}s forwards`;
+        });
+
+        // Interactive form validation
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+
+            input.addEventListener('blur', () => {
+                if (!input.value) {
+                    input.parentElement.classList.remove('focused');
+                }
+            });
+        });
+
+        // Enhanced form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const button = this.querySelector('button');
-            button.style.pointerEvents = 'none';
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            const button = this.querySelector('.submit-btn');
             
+            // Add loading animation
+            button.innerHTML = `
+                <span class="button-content">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Sending...</span>
+                </span>
+            `;
+            button.classList.add('loading');
+            
+            // Simulate form submission
             setTimeout(() => {
-                button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                button.innerHTML = `
+                    <span class="button-content">
+                        <i class="fas fa-check"></i>
+                        <span>Message Sent!</span>
+                    </span>
+                `;
+                button.classList.remove('loading');
+                button.classList.add('success');
+                
+                // Reset form with animation
                 this.reset();
+                formGroups.forEach(group => {
+                    group.classList.remove('focused');
+                });
+                
+                // Reset button after delay
                 setTimeout(() => {
                     button.innerHTML = 'Send Message';
-                    button.style.pointerEvents = 'auto';
+                    button.classList.remove('success');
                 }, 2000);
             }, 1500);
         });
 
-        // Reveal animations on scroll
-        const cards = document.querySelectorAll('.contact-card');
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.backgroundPositionY = `${scroll * 0.5}px`;
+        });
 
-        cards.forEach(card => observer.observe(card));
+        // Add touch device detection
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+        }
+
+        // Disable parallax on mobile
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            window.removeEventListener('scroll', parallaxEffect);
+        }
+
+        // Adjust form field heights on mobile
+        if (window.innerWidth <= 480) {
+            document.querySelector('#message').rows = "3";
+        }
     </script>
 </body>
 </html>
