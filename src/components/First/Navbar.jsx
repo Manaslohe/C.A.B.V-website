@@ -41,7 +41,6 @@ const Navbar = () => {
 
   const navItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'aboutus', label: 'About Us' },
     { id: 'blindcricket', label: 'About Blind Cricket' },
     { id: 'committee', label: 'Committee Members' },
     { id: 'partners', label: 'Partners' }
