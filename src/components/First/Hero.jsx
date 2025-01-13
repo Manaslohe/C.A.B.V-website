@@ -1,18 +1,24 @@
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"; // Add AnimatePresence
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import { useState, useEffect } from "react";
+import Preloader from "./Preloader.jsx";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
   const [showSubtitle, setShowSubtitle] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // Add useEffect to handle initial mount
   useEffect(() => {
-    setMounted(true);
-    // Show subtitle after a delay on initial load
+    // Simulate loading time
     const timer = setTimeout(() => {
-      setShowSubtitle(true);
-    }, 500); // Increased delay for better sequence
+      setLoading(false);
+      setMounted(true);
+      
+      // Show subtitle after preloader
+      setTimeout(() => {
+        setShowSubtitle(true);
+      }, 500);
+    }, 2000); // 2 seconds loading time
     
     return () => clearTimeout(timer);
   }, []);
@@ -40,7 +46,18 @@ const Hero = () => {
   );
 
 return (
-    <motion.section id="hero" className="h-screen flex items-center justify-center flex-col relative overflow-hidden bg-blue-50">
+    <>
+      <AnimatePresence mode="wait">
+        {loading && <Preloader />}
+      </AnimatePresence>
+
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: loading ? 0 : 1 }}
+        transition={{ duration: 0.5 }}
+        id="hero"
+        className="h-screen flex items-center justify-center flex-col relative overflow-hidden bg-blue-50"
+      >
         {/* Background image */}
         <motion.div 
             className="absolute inset-0 bg-cover bg-center z-0"
@@ -116,7 +133,8 @@ return (
                 </div>
             </motion.div>
         </motion.div>
-    </motion.section>
+      </motion.section>
+    </>
 );
 };
 
