@@ -1,6 +1,9 @@
 import { Facebook, Twitter, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="bg-gradient-to-r from-[#1a1a1a] to-[#2d2d2d] text-white">
       <div className="max-w-7xl mx-auto px-4 py-16">
@@ -17,7 +20,7 @@ const Footer = () => {
             </p>
             <button 
               className="bg-[#1544c0] hover:bg-[#1236a0] transition-colors duration-300 px-6 py-3 rounded-full flex items-center gap-2"
-              onClick={() => window.location.href = '/donate'}
+              onClick={() => navigate('/donation')}
             >
               <Heart size={20} className="animate-pulse" />
               <span>Make a Donation</span>

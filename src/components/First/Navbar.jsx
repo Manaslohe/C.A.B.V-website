@@ -110,7 +110,10 @@ const Navbar = () => {
 
         {/* Mobile Menu Button - Updated breakpoint */}
         <button 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={(e) => {
+            e.preventDefault();
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+          }}
           className="lg:hidden text-white p-2"
           aria-label="Toggle menu"
         >
@@ -123,10 +126,13 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Mobile Menu - Updated styling and breakpoint */}
-        <div className={`lg:hidden fixed top-20 left-0 right-0 bg-blue-700/95 backdrop-blur-sm transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
-        }`}>
+        {/* Mobile Menu - Updated to prevent click propagation */}
+        <div 
+          className={`lg:hidden fixed top-20 left-0 right-0 bg-blue-700/95 backdrop-blur-sm transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
+          }`}
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="flex flex-col p-4 space-y-3 max-h-[calc(100vh-5rem)] overflow-y-auto">
             {navItems.map((item) => (
               <button
