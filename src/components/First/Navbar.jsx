@@ -83,12 +83,12 @@ const Navbar = () => {
               <div className="absolute inset-0 h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left bottom-0"></div>
             </button>
           ))}
-          <a 
-            href="/contact"
+          <Link 
+            to="/contact"
             className="hidden lg:block px-6 py-2 bg-white text-blue-600 rounded-full hover:bg-blue-50 transition-colors font-medium text-sm"
           >
             Contact
-          </a>
+          </Link>
           {/* Desktop Donation Button - Added lg: breakpoint */}
           <motion.button
             onClick={handleDonateClick}
@@ -143,12 +143,12 @@ const Navbar = () => {
                 {item.label}
               </button>
             ))}
-            <a 
-              href="/contact"
+            <Link 
+              to="/contact"
               className="bg-white text-blue-600 px-4 py-3 rounded-lg text-center font-medium text-base"
             >
               Contact
-            </a>
+            </Link>
             {/* Mobile Donation Button - Updated styling */}
             <motion.button
               onClick={handleDonateClick}
