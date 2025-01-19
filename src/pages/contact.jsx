@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, ChevronLeft, Facebook, Linkedin, Instagram } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -39,7 +40,7 @@ const Contact = () => {
     {
       icon: <Mail className="w-5 h-5" />,
       label: "Email Address",
-      values: ["vidharbha.blindcricket@gmail.com"],
+      values: ["Vidarbha.blindcricket@gmail.com"],
       type: "email"
     },
     {
@@ -76,8 +77,45 @@ const Contact = () => {
     }
   `;
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact CABV",
+    "description": "Contact information for Cricket Association for the Blind in Vidarbha",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Cricket Association for the Blind in Vidarbha",
+      "telephone": ["+91 8459023689", "+91 9423603630"],
+      "email": "Vidarbha.blindcricket@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nagpur",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN",
+        "streetAddress": "Vidarbha Cricket Association, Civil Lines"
+      },
+      "sameAs": [
+        "https://facebook.com/CABV",
+        "https://linkedin.com/company/CABV",
+        "https://instagram.com/CABV"
+      ]
+    }
+  };
+
   return (
     <>
+      <Helmet>
+        <title>Contact CABV | Cricket Association for the Blind in Vidarbha</title>
+        <meta name="description" content="Get in touch with Cricket Association for the Blind in Vidarbha. Contact us for support, queries, or to join our mission of promoting blind cricket." />
+        <meta name="keywords" content="contact CABV, blind cricket contact, Vidarbha cricket association, blind cricket support, visually impaired cricket contact" />
+        <link rel="canonical" href="https://www.blindcricketvidarbha.in/contact" />
+        <meta property="og:title" content="Contact CABV - Cricket Association for the Blind in Vidarbha" />
+        <meta property="og:description" content="Reach out to us for support, queries, or to join our mission of promoting blind cricket in Vidarbha." />
+        <meta property="og:url" content="https://www.blindcricketvidarbha.in/contact" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
       <style>{internalStyles}</style>
       <div className="h-screen bg-gradient-to-br from-blue-800 via-blue-600 to-blue-900 relative overflow-y-auto mobile-scroll">
         {/* Cricket Pattern Overlay */}

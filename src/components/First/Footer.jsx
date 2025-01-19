@@ -42,10 +42,10 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Contact Info</h3>
             <div className="space-y-3">
-              <a href="mailto:vidharbha.blindcricket@gmail.com" 
+              <a href="mailto:Vidarbha.blindcricket@gmail.com" 
                  className="flex items-center gap-2 text-gray-300 hover:text-[#1544c0] transition-colors duration-300">
                 <Mail size={18} />
-                <span>vidharbha.blindcricket@gmail.com</span>
+                <span>Vidarbha.blindcricket@gmail.com</span>
               </a>
               <a href="tel:+918459023689" 
                  className="flex items-center gap-2 text-gray-300 hover:text-[#1544c0] transition-colors duration-300">
@@ -88,7 +88,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} Cricket Association for Blind Vidharbha. All rights reserved.
+              © {new Date().getFullYear()} Cricket Association for Blind Vidarbha. All rights reserved.
             </p>
             <p className="text-white font-ginger text-lg md:text-xl tracking-wide font-semibold" 
                style={{

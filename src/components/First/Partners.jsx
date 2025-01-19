@@ -3,7 +3,7 @@ const Partners = () => {
     {
       title: "Organisational Partner",
       name: "Rashtriy Drishtihin Shikshan AVN Punarvasan Sanstha Nagpur",
-      description: "A premier institute in Nagpur dedicated to the education and all-around development of visually impaired persons. Their Gyan Jyoti school stands as one of the top institutes across Vidharbha, empowering students through comprehensive education and support.",
+      description: "A premier institute in Nagpur dedicated to the education and all-around development of visually impaired persons. Their Gyan Jyoti school stands as one of the top institutes across Vidarbha, empowering students through comprehensive education and support.",
       website: "https://rdspsngp.org/",
       linkText: "Visit Website"
     },

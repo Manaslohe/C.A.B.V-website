@@ -111,7 +111,7 @@ return (
                             tracking-normal"
                     >
                         <TextGenerateEffect
-                            words="Cricket Association for the Blind in Vidharbha"
+                            words="Cricket Association for the Blind in Vidarbha"
                             className="inline-flex tracking-tight font-semibold 
                                                 [text-shadow:_0_1px_12px_rgb(255_255_255_/_20%)]"
                         />
